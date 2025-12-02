@@ -1,0 +1,29 @@
+{
+	"version": 1,
+	"changelists": [
+		{
+			"guid": "00000000000000000000000000000000",
+			"description": "Default Uncontrolled Changelist",
+			"files": [
+				"C:/Users/2326296/Documents/Unreal Projects/week5stuff/Content/StarterContent/Architecture/Floor_400x400.uasset",
+				"C:/Users/2326296/Documents/Unreal Projects/week5stuff/Content/NS_FireFlipbook.uasset",
+				"C:/Users/2326296/Documents/Unreal Projects/week5stuff/Content/M_Trail.uasset",
+				"C:/Users/2326296/Documents/Unreal Projects/week5stuff/Content/M_Smoke.uasset",
+				"C:/Users/2326296/Documents/Unreal Projects/week5stuff/Content/NS_Fireball.uasset",
+				"C:/Users/2326296/Documents/Unreal Projects/week5stuff/Content/__ExternalActors__/ThirdPerson/Lvl_ThirdPerson/0/DW/03HHC2FE0E2QD02OVGT83V.uasset",
+				"C:/Users/2326296/Documents/Unreal Projects/week5stuff/Content/__ExternalActors__/ThirdPerson/Lvl_ThirdPerson/7/L6/KIGPBUF4KO3ZZPBEDQ3DVW.uasset",
+				"C:/Users/2326296/Documents/Unreal Projects/week5stuff/Content/LevelPrototyping/Materials/M_FlatCol.uasset",
+				"C:/Users/2326296/Documents/Unreal Projects/week5stuff/Content/StarterContent/Materials/M_Basic_Floor.uasset",
+				"C:/Users/2326296/Documents/Unreal Projects/week5stuff/Content/StarterContent/Particles/Materials/M_Fire_SubUV.uasset",
+				"C:/Users/2326296/Documents/Unreal Projects/week5stuff/Content/StarterContent/Particles/Materials/M_smoke_subUV.uasset",
+				"C:/Users/2326296/Documents/Unreal Projects/week5stuff/Content/NS_FireNormal.uasset",
+				"C:/Users/2326296/Documents/Unreal Projects/week5stuff/Content/TestTexture.uasset",
+				"C:/Users/2326296/Documents/Unreal Projects/week5stuff/Content/TestTexture90.uasset",
+				"C:/Users/2326296/Documents/Unreal Projects/week5stuff/Content/StarterContent/Materials/M_Water_Ocean.uasset",
+				"C:/Users/2326296/Documents/Unreal Projects/week5stuff/Content/BP_Shooter.uasset",
+				"C:/Users/2326296/Documents/Unreal Projects/week5stuff/Content/__ExternalActors__/ThirdPerson/Lvl_ThirdPerson/3/FV/KL7SI8E0G60UKZJY3585VD.uasset",
+				"C:/Users/2326296/Documents/Unreal Projects/week5stuff/Content/BP_Projectile.uasset"
+			]
+		}
+	]
+}

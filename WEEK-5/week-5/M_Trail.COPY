@@ -1,0 +1,335 @@
+Begin Object Class=/Script/Engine.Material Name="M_Trail" ExportPath="/Script/Engine.Material'/Game/M_Trail.M_Trail'"
+   Begin Object Class=/Script/Engine.MaterialEditorOnlyData Name="M_TrailEditorOnlyData" ExportPath="/Script/Engine.MaterialEditorOnlyData'/Game/M_Trail.M_Trail:M_TrailEditorOnlyData'"
+   End Object
+   Begin Object Class=/Script/Engine.MaterialExpressionAdd Name="MaterialExpressionAdd_0" ExportPath="/Script/Engine.MaterialExpressionAdd'/Game/M_Trail.M_Trail:MaterialExpressionAdd_0'"
+   End Object
+   Begin Object Class=/Script/Engine.MaterialExpressionAppendVector Name="MaterialExpressionAppendVector_0" ExportPath="/Script/Engine.MaterialExpressionAppendVector'/Game/M_Trail.M_Trail:MaterialExpressionAppendVector_0'"
+   End Object
+   Begin Object Class=/Script/Engine.MaterialExpressionAppendVector Name="MaterialExpressionAppendVector_1" ExportPath="/Script/Engine.MaterialExpressionAppendVector'/Game/M_Trail.M_Trail:MaterialExpressionAppendVector_1'"
+   End Object
+   Begin Object Class=/Script/Engine.MaterialExpressionAppendVector Name="MaterialExpressionAppendVector_2" ExportPath="/Script/Engine.MaterialExpressionAppendVector'/Game/M_Trail.M_Trail:MaterialExpressionAppendVector_2'"
+   End Object
+   Begin Object Class=/Script/Engine.MaterialExpressionComponentMask Name="MaterialExpressionComponentMask_0" ExportPath="/Script/Engine.MaterialExpressionComponentMask'/Game/M_Trail.M_Trail:MaterialExpressionComponentMask_0'"
+   End Object
+   Begin Object Class=/Script/Engine.MaterialExpressionDynamicParameter Name="MaterialExpressionDynamicParameter_0" ExportPath="/Script/Engine.MaterialExpressionDynamicParameter'/Game/M_Trail.M_Trail:MaterialExpressionDynamicParameter_0'"
+   End Object
+   Begin Object Class=/Script/Engine.MaterialExpressionDynamicParameter Name="MaterialExpressionDynamicParameter_1" ExportPath="/Script/Engine.MaterialExpressionDynamicParameter'/Game/M_Trail.M_Trail:MaterialExpressionDynamicParameter_1'"
+   End Object
+   Begin Object Class=/Script/Engine.MaterialExpressionMaterialFunctionCall Name="MaterialExpressionMaterialFunctionCall_0" ExportPath="/Script/Engine.MaterialExpressionMaterialFunctionCall'/Game/M_Trail.M_Trail:MaterialExpressionMaterialFunctionCall_0'"
+   End Object
+   Begin Object Class=/Script/Engine.MaterialExpressionMultiply Name="MaterialExpressionMultiply_0" ExportPath="/Script/Engine.MaterialExpressionMultiply'/Game/M_Trail.M_Trail:MaterialExpressionMultiply_0'"
+   End Object
+   Begin Object Class=/Script/Engine.MaterialExpressionMultiply Name="MaterialExpressionMultiply_1" ExportPath="/Script/Engine.MaterialExpressionMultiply'/Game/M_Trail.M_Trail:MaterialExpressionMultiply_1'"
+   End Object
+   Begin Object Class=/Script/Engine.MaterialExpressionMultiply Name="MaterialExpressionMultiply_2" ExportPath="/Script/Engine.MaterialExpressionMultiply'/Game/M_Trail.M_Trail:MaterialExpressionMultiply_2'"
+   End Object
+   Begin Object Class=/Script/Engine.MaterialExpressionMultiply Name="MaterialExpressionMultiply_3" ExportPath="/Script/Engine.MaterialExpressionMultiply'/Game/M_Trail.M_Trail:MaterialExpressionMultiply_3'"
+   End Object
+   Begin Object Class=/Script/Engine.MaterialExpressionMultiply Name="MaterialExpressionMultiply_4" ExportPath="/Script/Engine.MaterialExpressionMultiply'/Game/M_Trail.M_Trail:MaterialExpressionMultiply_4'"
+   End Object
+   Begin Object Class=/Script/Engine.MaterialExpressionMultiply Name="MaterialExpressionMultiply_5" ExportPath="/Script/Engine.MaterialExpressionMultiply'/Game/M_Trail.M_Trail:MaterialExpressionMultiply_5'"
+   End Object
+   Begin Object Class=/Script/Engine.MaterialExpressionOneMinus Name="MaterialExpressionOneMinus_0" ExportPath="/Script/Engine.MaterialExpressionOneMinus'/Game/M_Trail.M_Trail:MaterialExpressionOneMinus_0'"
+   End Object
+   Begin Object Class=/Script/Engine.MaterialExpressionPanner Name="MaterialExpressionPanner_0" ExportPath="/Script/Engine.MaterialExpressionPanner'/Game/M_Trail.M_Trail:MaterialExpressionPanner_0'"
+   End Object
+   Begin Object Class=/Script/Engine.MaterialExpressionPanner Name="MaterialExpressionPanner_1" ExportPath="/Script/Engine.MaterialExpressionPanner'/Game/M_Trail.M_Trail:MaterialExpressionPanner_1'"
+   End Object
+   Begin Object Class=/Script/Engine.MaterialExpressionParticleColor Name="MaterialExpressionParticleColor_0" ExportPath="/Script/Engine.MaterialExpressionParticleColor'/Game/M_Trail.M_Trail:MaterialExpressionParticleColor_0'"
+   End Object
+   Begin Object Class=/Script/Engine.MaterialExpressionPower Name="MaterialExpressionPower_0" ExportPath="/Script/Engine.MaterialExpressionPower'/Game/M_Trail.M_Trail:MaterialExpressionPower_0'"
+   End Object
+   Begin Object Class=/Script/Engine.MaterialExpressionReroute Name="MaterialExpressionReroute_0" ExportPath="/Script/Engine.MaterialExpressionReroute'/Game/M_Trail.M_Trail:MaterialExpressionReroute_0'"
+   End Object
+   Begin Object Class=/Script/Engine.MaterialExpressionReroute Name="MaterialExpressionReroute_1" ExportPath="/Script/Engine.MaterialExpressionReroute'/Game/M_Trail.M_Trail:MaterialExpressionReroute_1'"
+   End Object
+   Begin Object Class=/Script/Engine.MaterialExpressionScalarParameter Name="MaterialExpressionScalarParameter_0" ExportPath="/Script/Engine.MaterialExpressionScalarParameter'/Game/M_Trail.M_Trail:MaterialExpressionScalarParameter_0'"
+   End Object
+   Begin Object Class=/Script/Engine.MaterialExpressionScalarParameter Name="MaterialExpressionScalarParameter_1" ExportPath="/Script/Engine.MaterialExpressionScalarParameter'/Game/M_Trail.M_Trail:MaterialExpressionScalarParameter_1'"
+   End Object
+   Begin Object Class=/Script/Engine.MaterialExpressionScalarParameter Name="MaterialExpressionScalarParameter_2" ExportPath="/Script/Engine.MaterialExpressionScalarParameter'/Game/M_Trail.M_Trail:MaterialExpressionScalarParameter_2'"
+   End Object
+   Begin Object Class=/Script/Engine.MaterialExpressionTextureCoordinate Name="MaterialExpressionTextureCoordinate_0" ExportPath="/Script/Engine.MaterialExpressionTextureCoordinate'/Game/M_Trail.M_Trail:MaterialExpressionTextureCoordinate_0'"
+   End Object
+   Begin Object Class=/Script/Engine.MaterialExpressionTextureCoordinate Name="MaterialExpressionTextureCoordinate_1" ExportPath="/Script/Engine.MaterialExpressionTextureCoordinate'/Game/M_Trail.M_Trail:MaterialExpressionTextureCoordinate_1'"
+   End Object
+   Begin Object Class=/Script/Engine.MaterialExpressionTextureSample Name="MaterialExpressionTextureSample_0" ExportPath="/Script/Engine.MaterialExpressionTextureSample'/Game/M_Trail.M_Trail:MaterialExpressionTextureSample_0'"
+   End Object
+   Begin Object Class=/Script/Engine.MaterialExpressionTextureSample Name="MaterialExpressionTextureSample_1" ExportPath="/Script/Engine.MaterialExpressionTextureSample'/Game/M_Trail.M_Trail:MaterialExpressionTextureSample_1'"
+   End Object
+   Begin Object Name="M_TrailEditorOnlyData" ExportPath="/Script/Engine.MaterialEditorOnlyData'/Game/M_Trail.M_Trail:M_TrailEditorOnlyData'"
+      BaseColor=(UseConstant=True)
+      Metallic=(UseConstant=True)
+      Specular=(UseConstant=True)
+      Roughness=(UseConstant=True)
+      Normal=(UseConstant=True)
+      Tangent=(UseConstant=True)
+      EmissiveColor=(Expression="/Script/Engine.MaterialExpressionParticleColor'M_Trail:MaterialExpressionParticleColor_0'",Mask=1,MaskR=1,MaskG=1,MaskB=1)
+      Opacity=(Expression="/Script/Engine.MaterialExpressionMultiply'M_Trail:MaterialExpressionMultiply_0'")
+      OpacityMask=(UseConstant=True)
+      SubsurfaceColor=(UseConstant=True)
+      ClearCoat=(UseConstant=True)
+      ClearCoatRoughness=(UseConstant=True)
+      AmbientOcclusion=(UseConstant=True)
+      Refraction=(UseConstant=True)
+      CustomizedUVs(0)=(UseConstant=True)
+      CustomizedUVs(1)=(UseConstant=True)
+      CustomizedUVs(2)=(UseConstant=True)
+      CustomizedUVs(3)=(UseConstant=True)
+      CustomizedUVs(4)=(UseConstant=True)
+      CustomizedUVs(5)=(UseConstant=True)
+      CustomizedUVs(6)=(UseConstant=True)
+      CustomizedUVs(7)=(UseConstant=True)
+      SurfaceThickness=(UseConstant=True)
+      ExpressionCollection=(Expressions=("/Script/Engine.MaterialExpressionParticleColor'M_Trail:MaterialExpressionParticleColor_0'","/Script/Engine.MaterialExpressionMultiply'M_Trail:MaterialExpressionMultiply_0'","/Script/Engine.MaterialExpressionTextureSample'M_Trail:MaterialExpressionTextureSample_0'","/Script/Engine.MaterialExpressionMultiply'M_Trail:MaterialExpressionMultiply_1'","/Script/Engine.MaterialExpressionPower'M_Trail:MaterialExpressionPower_0'","/Script/Engine.MaterialExpressionMaterialFunctionCall'M_Trail:MaterialExpressionMaterialFunctionCall_0'","/Script/Engine.MaterialExpressionDynamicParameter'M_Trail:MaterialExpressionDynamicParameter_0'","/Script/Engine.MaterialExpressionTextureCoordinate'M_Trail:MaterialExpressionTextureCoordinate_0'","/Script/Engine.MaterialExpressionComponentMask'M_Trail:MaterialExpressionComponentMask_0'","/Script/Engine.MaterialExpressionOneMinus'M_Trail:MaterialExpressionOneMinus_0'","/Script/Engine.MaterialExpressionPanner'M_Trail:MaterialExpressionPanner_0'","/Script/Engine.MaterialExpressionTextureCoordinate'M_Trail:MaterialExpressionTextureCoordinate_1'","/Script/Engine.MaterialExpressionMultiply'M_Trail:MaterialExpressionMultiply_2'","/Script/Engine.MaterialExpressionDynamicParameter'M_Trail:MaterialExpressionDynamicParameter_1'","/Script/Engine.MaterialExpressionAppendVector'M_Trail:MaterialExpressionAppendVector_0'","/Script/Engine.MaterialExpressionAdd'M_Trail:MaterialExpressionAdd_0'","/Script/Engine.MaterialExpressionTextureSample'M_Trail:MaterialExpressionTextureSample_1'","/Script/Engine.MaterialExpressionMultiply'M_Trail:MaterialExpressionMultiply_3'","/Script/Engine.MaterialExpressionPanner'M_Trail:MaterialExpressionPanner_1'","/Script/Engine.MaterialExpressionScalarParameter'M_Trail:MaterialExpressionScalarParameter_0'","/Script/Engine.MaterialExpressionMultiply'M_Trail:MaterialExpressionMultiply_4'","/Script/Engine.MaterialExpressionReroute'M_Trail:MaterialExpressionReroute_0'","/Script/Engine.MaterialExpressionReroute'M_Trail:MaterialExpressionReroute_1'","/Script/Engine.MaterialExpressionAppendVector'M_Trail:MaterialExpressionAppendVector_1'","/Script/Engine.MaterialExpressionScalarParameter'M_Trail:MaterialExpressionScalarParameter_1'","/Script/Engine.MaterialExpressionMultiply'M_Trail:MaterialExpressionMultiply_5'","/Script/Engine.MaterialExpressionAppendVector'M_Trail:MaterialExpressionAppendVector_2'","/Script/Engine.MaterialExpressionScalarParameter'M_Trail:MaterialExpressionScalarParameter_2'"))
+      ParameterGroupData(0)=(GroupName="None")
+   End Object
+   Begin Object Name="MaterialExpressionAdd_0" ExportPath="/Script/Engine.MaterialExpressionAdd'/Game/M_Trail.M_Trail:MaterialExpressionAdd_0'"
+      A=(Expression="/Script/Engine.MaterialExpressionMultiply'M_Trail:MaterialExpressionMultiply_2'")
+      B=(Expression="/Script/Engine.MaterialExpressionMultiply'M_Trail:MaterialExpressionMultiply_3'")
+      MaterialExpressionEditorX=-2160
+      MaterialExpressionEditorY=400
+      MaterialExpressionGuid=203692EC4A384F49B4D844AEE5CB2231
+      Material="/Script/Engine.Material'M_Trail'"
+   End Object
+   Begin Object Name="MaterialExpressionAppendVector_0" ExportPath="/Script/Engine.MaterialExpressionAppendVector'/Game/M_Trail.M_Trail:MaterialExpressionAppendVector_0'"
+      A=(Expression="/Script/Engine.MaterialExpressionDynamicParameter'M_Trail:MaterialExpressionDynamicParameter_1'",Mask=1,MaskR=1)
+      B=(Expression="/Script/Engine.MaterialExpressionDynamicParameter'M_Trail:MaterialExpressionDynamicParameter_1'",OutputIndex=1,Mask=1,MaskG=1)
+      MaterialExpressionEditorX=-2400
+      MaterialExpressionEditorY=528
+      MaterialExpressionGuid=7FD6AB6C4FE34313D5CA89B27953913D
+      Material="/Script/Engine.Material'M_Trail'"
+   End Object
+   Begin Object Name="MaterialExpressionAppendVector_1" ExportPath="/Script/Engine.MaterialExpressionAppendVector'/Game/M_Trail.M_Trail:MaterialExpressionAppendVector_1'"
+      A=(Expression="/Script/Engine.MaterialExpressionMultiply'M_Trail:MaterialExpressionMultiply_4'")
+      B=(Expression="/Script/Engine.MaterialExpressionScalarParameter'M_Trail:MaterialExpressionScalarParameter_1'")
+      MaterialExpressionEditorX=-3152
+      MaterialExpressionEditorY=1008
+      MaterialExpressionGuid=A77403F440C12F9FE20158804592CCCD
+      Material="/Script/Engine.Material'M_Trail'"
+   End Object
+   Begin Object Name="MaterialExpressionAppendVector_2" ExportPath="/Script/Engine.MaterialExpressionAppendVector'/Game/M_Trail.M_Trail:MaterialExpressionAppendVector_2'"
+      A=(Expression="/Script/Engine.MaterialExpressionMultiply'M_Trail:MaterialExpressionMultiply_5'")
+      B=(Expression="/Script/Engine.MaterialExpressionScalarParameter'M_Trail:MaterialExpressionScalarParameter_2'")
+      MaterialExpressionEditorX=-1904
+      MaterialExpressionEditorY=576
+      MaterialExpressionGuid=8886CB404DA79D81731487B626F1B0C9
+      Material="/Script/Engine.Material'M_Trail'"
+   End Object
+   Begin Object Name="MaterialExpressionComponentMask_0" ExportPath="/Script/Engine.MaterialExpressionComponentMask'/Game/M_Trail.M_Trail:MaterialExpressionComponentMask_0'"
+      Input=(Expression="/Script/Engine.MaterialExpressionTextureCoordinate'M_Trail:MaterialExpressionTextureCoordinate_0'")
+      G=True
+      MaterialExpressionEditorX=-1392
+      MaterialExpressionEditorY=640
+      MaterialExpressionGuid=6F50775E4205B338D2D0CD8E83946150
+      Material="/Script/Engine.Material'M_Trail'"
+   End Object
+   Begin Object Name="MaterialExpressionDynamicParameter_0" ExportPath="/Script/Engine.MaterialExpressionDynamicParameter'/Game/M_Trail.M_Trail:MaterialExpressionDynamicParameter_0'"
+      ParamNames(0)="U(1)"
+      ParamNames(1)="V(1)"
+      ParamNames(2)="Speed(1)"
+      ParamNames(3)="Density(1)"
+      MaterialExpressionEditorX=-912
+      MaterialExpressionEditorY=576
+      MaterialExpressionGuid=95C6939B4B9A739FF50911B2E2C1EA14
+      Material="/Script/Engine.Material'M_Trail'"
+      Outputs(0)=(OutputName="U(1)")
+      Outputs(1)=(OutputName="V(1)")
+      Outputs(2)=(OutputName="Speed(1)")
+      Outputs(3)=(OutputName="Density(1)")
+   End Object
+   Begin Object Name="MaterialExpressionDynamicParameter_1" ExportPath="/Script/Engine.MaterialExpressionDynamicParameter'/Game/M_Trail.M_Trail:MaterialExpressionDynamicParameter_1'"
+      ParamNames(0)="U(1)"
+      ParamNames(1)="V(1)"
+      ParamNames(2)="Speed(1)"
+      ParamNames(3)="Density(1)"
+      MaterialExpressionEditorX=-3328
+      MaterialExpressionEditorY=512
+      MaterialExpressionGuid=782C58ED413A64B01840B1A81ED02369
+      Material="/Script/Engine.Material'M_Trail'"
+      Outputs(0)=(OutputName="U(1)")
+      Outputs(1)=(OutputName="V(1)")
+      Outputs(2)=(OutputName="Speed(1)")
+      Outputs(3)=(OutputName="Density(1)")
+   End Object
+   Begin Object Name="MaterialExpressionMaterialFunctionCall_0" ExportPath="/Script/Engine.MaterialExpressionMaterialFunctionCall'/Game/M_Trail.M_Trail:MaterialExpressionMaterialFunctionCall_0'"
+      MaterialFunction="/Script/Engine.MaterialFunction'/Engine/Functions/Engine_MaterialFunctions01/Gradient/RadialGradientExponential.RadialGradientExponential'"
+      FunctionInputs(0)=(ExpressionInputId=D38E6C0F499293F6CC65C0AE55AE0D4E,Input=(Expression="/Script/Engine.MaterialExpressionPower'M_Trail:MaterialExpressionPower_0'",InputName="UVs"))
+      FunctionInputs(1)=(ExpressionInputId=2997555B436C735459B9D695B58F219E,Input=(OutputIndex=-1,InputName="CenterPosition"))
+      FunctionInputs(2)=(ExpressionInputId=B330351C4B254660CCDCA5923C8F3F26,Input=(OutputIndex=-1,InputName="Radius"))
+      FunctionInputs(3)=(ExpressionInputId=2B61E834449DAE3BC4D079B953B5DE0E,Input=(Expression="/Script/Engine.MaterialExpressionDynamicParameter'M_Trail:MaterialExpressionDynamicParameter_0'",OutputIndex=3,InputName="Density",Mask=1,MaskA=1))
+      FunctionInputs(4)=(ExpressionInputId=7D5AC5254448D12A92351AA36BEED90A,Input=(OutputIndex=-1,InputName="Invert Density"))
+      FunctionOutputs(0)=(ExpressionOutputId=8D0763534D7AAC86623FB1AE8CD0CC39,Output=(OutputName="RadialGradientExponential"))
+      MaterialExpressionEditorX=-672
+      MaterialExpressionEditorY=384
+      MaterialExpressionGuid=B501E36D416BD2D54693A3AD14C87935
+      Material="/Script/Engine.Material'M_Trail'"
+      Outputs(0)=(OutputName="RadialGradientExponential")
+   End Object
+   Begin Object Name="MaterialExpressionMultiply_0" ExportPath="/Script/Engine.MaterialExpressionMultiply'/Game/M_Trail.M_Trail:MaterialExpressionMultiply_0'"
+      A=(Expression="/Script/Engine.MaterialExpressionParticleColor'M_Trail:MaterialExpressionParticleColor_0'",OutputIndex=4,Mask=1,MaskA=1)
+      B=(Expression="/Script/Engine.MaterialExpressionMaterialFunctionCall'M_Trail:MaterialExpressionMaterialFunctionCall_0'")
+      MaterialExpressionEditorX=-320
+      MaterialExpressionEditorY=176
+      MaterialExpressionGuid=38D714A84296EFA133E3AA918F47D7BE
+      Material="/Script/Engine.Material'M_Trail'"
+   End Object
+   Begin Object Name="MaterialExpressionMultiply_1" ExportPath="/Script/Engine.MaterialExpressionMultiply'/Game/M_Trail.M_Trail:MaterialExpressionMultiply_1'"
+      A=(Expression="/Script/Engine.MaterialExpressionTextureSample'M_Trail:MaterialExpressionTextureSample_0'",Mask=1,MaskR=1,MaskG=1,MaskB=1)
+      B=(Expression="/Script/Engine.MaterialExpressionOneMinus'M_Trail:MaterialExpressionOneMinus_0'")
+      MaterialExpressionEditorX=-1008
+      MaterialExpressionEditorY=384
+      MaterialExpressionGuid=D8610E85467AEA1F4A91D59A0511F307
+      Material="/Script/Engine.Material'M_Trail'"
+   End Object
+   Begin Object Name="MaterialExpressionMultiply_2" ExportPath="/Script/Engine.MaterialExpressionMultiply'/Game/M_Trail.M_Trail:MaterialExpressionMultiply_2'"
+      A=(Expression="/Script/Engine.MaterialExpressionTextureCoordinate'M_Trail:MaterialExpressionTextureCoordinate_1'")
+      B=(Expression="/Script/Engine.MaterialExpressionAppendVector'M_Trail:MaterialExpressionAppendVector_0'")
+      MaterialExpressionEditorX=-2400
+      MaterialExpressionEditorY=400
+      MaterialExpressionGuid=C4310E3B4C13F8E93AB46C978A4F095A
+      Material="/Script/Engine.Material'M_Trail'"
+   End Object
+   Begin Object Name="MaterialExpressionMultiply_3" ExportPath="/Script/Engine.MaterialExpressionMultiply'/Game/M_Trail.M_Trail:MaterialExpressionMultiply_3'"
+      A=(Expression="/Script/Engine.MaterialExpressionTextureSample'M_Trail:MaterialExpressionTextureSample_1'",OutputIndex=1,Mask=1,MaskR=1)
+      ConstB=0.200000
+      MaterialExpressionEditorX=-2416
+      MaterialExpressionEditorY=784
+      MaterialExpressionGuid=F3301B394A80EBEE1ED4A3869DE2A4C7
+      Material="/Script/Engine.Material'M_Trail'"
+   End Object
+   Begin Object Name="MaterialExpressionMultiply_4" ExportPath="/Script/Engine.MaterialExpressionMultiply'/Game/M_Trail.M_Trail:MaterialExpressionMultiply_4'"
+      A=(Expression="/Script/Engine.MaterialExpressionScalarParameter'M_Trail:MaterialExpressionScalarParameter_0'")
+      B=(Expression="/Script/Engine.MaterialExpressionReroute'M_Trail:MaterialExpressionReroute_1'")
+      MaterialExpressionEditorX=-3312
+      MaterialExpressionEditorY=1008
+      MaterialExpressionGuid=FE73C530497FE66A1613EE9DD215CB8C
+      Material="/Script/Engine.Material'M_Trail'"
+   End Object
+   Begin Object Name="MaterialExpressionMultiply_5" ExportPath="/Script/Engine.MaterialExpressionMultiply'/Game/M_Trail.M_Trail:MaterialExpressionMultiply_5'"
+      A=(Expression="/Script/Engine.MaterialExpressionDynamicParameter'M_Trail:MaterialExpressionDynamicParameter_1'",OutputIndex=2,Mask=1,MaskB=1)
+      ConstB=-1.000000
+      MaterialExpressionEditorX=-2064
+      MaterialExpressionEditorY=576
+      MaterialExpressionGuid=4644AA2C4C31A982C5DF928CBF4A4F0F
+      Material="/Script/Engine.Material'M_Trail'"
+   End Object
+   Begin Object Name="MaterialExpressionOneMinus_0" ExportPath="/Script/Engine.MaterialExpressionOneMinus'/Game/M_Trail.M_Trail:MaterialExpressionOneMinus_0'"
+      Input=(Expression="/Script/Engine.MaterialExpressionComponentMask'M_Trail:MaterialExpressionComponentMask_0'")
+      MaterialExpressionEditorX=-1232
+      MaterialExpressionEditorY=640
+      MaterialExpressionGuid=F97D2D6D471AA8FE6CEE359E88483252
+      Material="/Script/Engine.Material'M_Trail'"
+   End Object
+   Begin Object Name="MaterialExpressionPanner_0" ExportPath="/Script/Engine.MaterialExpressionPanner'/Game/M_Trail.M_Trail:MaterialExpressionPanner_0'"
+      Coordinate=(Expression="/Script/Engine.MaterialExpressionAdd'M_Trail:MaterialExpressionAdd_0'")
+      Speed=(Expression="/Script/Engine.MaterialExpressionAppendVector'M_Trail:MaterialExpressionAppendVector_2'")
+      SpeedX=-1.000000
+      MaterialExpressionEditorX=-1968
+      MaterialExpressionEditorY=368
+      MaterialExpressionGuid=BBDE00C343B7D46CFDC5488D10380D4A
+      Material="/Script/Engine.Material'M_Trail'"
+   End Object
+   Begin Object Name="MaterialExpressionPanner_1" ExportPath="/Script/Engine.MaterialExpressionPanner'/Game/M_Trail.M_Trail:MaterialExpressionPanner_1'"
+      Speed=(Expression="/Script/Engine.MaterialExpressionAppendVector'M_Trail:MaterialExpressionAppendVector_1'")
+      SpeedX=-0.500000
+      MaterialExpressionEditorX=-3008
+      MaterialExpressionEditorY=784
+      MaterialExpressionGuid=967F455247BF77B7C80BC4929C44B113
+      Material="/Script/Engine.Material'M_Trail'"
+   End Object
+   Begin Object Name="MaterialExpressionParticleColor_0" ExportPath="/Script/Engine.MaterialExpressionParticleColor'/Game/M_Trail.M_Trail:MaterialExpressionParticleColor_0'"
+      MaterialExpressionEditorX=-640
+      MaterialExpressionGuid=2EC2CB224FB121B71D4C84A8F6F397A7
+      Material="/Script/Engine.Material'M_Trail'"
+   End Object
+   Begin Object Name="MaterialExpressionPower_0" ExportPath="/Script/Engine.MaterialExpressionPower'/Game/M_Trail.M_Trail:MaterialExpressionPower_0'"
+      Base=(Expression="/Script/Engine.MaterialExpressionMultiply'M_Trail:MaterialExpressionMultiply_1'")
+      MaterialExpressionEditorX=-848
+      MaterialExpressionEditorY=384
+      MaterialExpressionGuid=952354B94F8D98E6E127818C71E7D985
+      Material="/Script/Engine.Material'M_Trail'"
+   End Object
+   Begin Object Name="MaterialExpressionReroute_0" ExportPath="/Script/Engine.MaterialExpressionReroute'/Game/M_Trail.M_Trail:MaterialExpressionReroute_0'"
+      Input=(Expression="/Script/Engine.MaterialExpressionDynamicParameter'M_Trail:MaterialExpressionDynamicParameter_1'",OutputIndex=2,Mask=1,MaskB=1)
+      MaterialExpressionEditorX=-3472
+      MaterialExpressionEditorY=832
+      MaterialExpressionGuid=32AEEC534D31AF3E00DA32B74C577017
+      Material="/Script/Engine.Material'M_Trail'"
+   End Object
+   Begin Object Name="MaterialExpressionReroute_1" ExportPath="/Script/Engine.MaterialExpressionReroute'/Game/M_Trail.M_Trail:MaterialExpressionReroute_1'"
+      Input=(Expression="/Script/Engine.MaterialExpressionReroute'M_Trail:MaterialExpressionReroute_0'")
+      MaterialExpressionEditorX=-3472
+      MaterialExpressionEditorY=1072
+      MaterialExpressionGuid=D5F2D3794F86C05E1ED91086D6825254
+      Material="/Script/Engine.Material'M_Trail'"
+   End Object
+   Begin Object Name="MaterialExpressionScalarParameter_0" ExportPath="/Script/Engine.MaterialExpressionScalarParameter'/Game/M_Trail.M_Trail:MaterialExpressionScalarParameter_0'"
+      DefaultValue=-0.500000
+      ParameterName="Speed"
+      ExpressionGUID=22428CD142C63992F64B5E9D44CE2AA2
+      MaterialExpressionEditorX=-3504
+      MaterialExpressionEditorY=912
+      MaterialExpressionGuid=AD11968240D9BC08FF43DE8E8900575E
+      Material="/Script/Engine.Material'M_Trail'"
+   End Object
+   Begin Object Name="MaterialExpressionScalarParameter_1" ExportPath="/Script/Engine.MaterialExpressionScalarParameter'/Game/M_Trail.M_Trail:MaterialExpressionScalarParameter_1'"
+      ParameterName="0"
+      ExpressionGUID=8BCF640F4E7E02362F83DFBD56519348
+      MaterialExpressionEditorX=-3376
+      MaterialExpressionEditorY=1120
+      MaterialExpressionGuid=638BBA2746863A474972BDA25BACF285
+      Material="/Script/Engine.Material'M_Trail'"
+   End Object
+   Begin Object Name="MaterialExpressionScalarParameter_2" ExportPath="/Script/Engine.MaterialExpressionScalarParameter'/Game/M_Trail.M_Trail:MaterialExpressionScalarParameter_2'"
+      ParameterName="0"
+      ExpressionGUID=1FDB9D5F4FFBD46FB3C64FB4843E5953
+      MaterialExpressionEditorX=-2128
+      MaterialExpressionEditorY=688
+      MaterialExpressionGuid=15680EAD433AB4F97937D9AB8B705D73
+      Material="/Script/Engine.Material'M_Trail'"
+   End Object
+   Begin Object Name="MaterialExpressionTextureCoordinate_0" ExportPath="/Script/Engine.MaterialExpressionTextureCoordinate'/Game/M_Trail.M_Trail:MaterialExpressionTextureCoordinate_0'"
+      MaterialExpressionEditorX=-1616
+      MaterialExpressionEditorY=640
+      MaterialExpressionGuid=2E17FA6B4C5AEB65353F7B8C9BA77DF9
+      Material="/Script/Engine.Material'M_Trail'"
+   End Object
+   Begin Object Name="MaterialExpressionTextureCoordinate_1" ExportPath="/Script/Engine.MaterialExpressionTextureCoordinate'/Game/M_Trail.M_Trail:MaterialExpressionTextureCoordinate_1'"
+      MaterialExpressionEditorX=-2624
+      MaterialExpressionEditorY=368
+      MaterialExpressionGuid=E2F3A45E49D5D2E4F2888499D7E96903
+      Material="/Script/Engine.Material'M_Trail'"
+   End Object
+   Begin Object Name="MaterialExpressionTextureSample_0" ExportPath="/Script/Engine.MaterialExpressionTextureSample'/Game/M_Trail.M_Trail:MaterialExpressionTextureSample_0'"
+      Coordinates=(Expression="/Script/Engine.MaterialExpressionPanner'M_Trail:MaterialExpressionPanner_0'")
+      Texture="/Script/Engine.Texture2D'/Game/TestTexture90.TestTexture90'"
+      MaterialExpressionEditorX=-1632
+      MaterialExpressionEditorY=368
+      MaterialExpressionGuid=7F8ADFCC498A8B6EA93C3A8AAEE0C075
+      Material="/Script/Engine.Material'M_Trail'"
+   End Object
+   Begin Object Name="MaterialExpressionTextureSample_1" ExportPath="/Script/Engine.MaterialExpressionTextureSample'/Game/M_Trail.M_Trail:MaterialExpressionTextureSample_1'"
+      Coordinates=(Expression="/Script/Engine.MaterialExpressionPanner'M_Trail:MaterialExpressionPanner_1'")
+      Texture="/Script/Engine.Texture2D'/Game/StarterContent/Textures/T_Smoke_Tiled_D.T_Smoke_Tiled_D'"
+      MaterialExpressionEditorX=-2656
+      MaterialExpressionEditorY=784
+      MaterialExpressionGuid=5EFD91B44A01EB8405F51D955B89F38E
+      Material="/Script/Engine.Material'M_Trail'"
+   End Object
+   BlendMode=BLEND_Translucent
+   ShadingModel=MSM_Unlit
+   ShadingModels=(ShadingModelField=1)
+   bUsedWithNiagaraRibbons=True
+   EditorX=432
+   EditorY=-16
+   bCanMaskedBeAssumedOpaque=True
+   StateId=97B476CD4D16E7626844C68CAA0E2FD6
+   ReferencedTextureGuids(0)=E85B427A4FCB41C65907DF9737499ACD
+   ReferencedTextureGuids(1)=B5A8F8FD4C00A4330D95438F46238F48
+   EditorOnlyData="/Script/Engine.MaterialEditorOnlyData'M_TrailEditorOnlyData'"
+   TextureStreamingDataVersion=1
+   TextureStreamingData(0)=(SamplingScale=1.000000,UVChannelIndex=0,TextureName="T_Smoke_Tiled_D",TextureReference="/Game/StarterContent/Textures/T_Smoke_Tiled_D.T_Smoke_Tiled_D")
+   ParameterOverviewExpansion=(("-12Global", True))
+   LightingGuid=0AB971F649C7F08FE36BACA5E7DEE807
+End Object
