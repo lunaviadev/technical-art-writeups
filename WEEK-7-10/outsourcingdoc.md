@@ -70,6 +70,22 @@ This postprocess material uses a variety of desaturate and divide nodes in order
 
 ## Reflective Documentation
 
+## Baseline research
+
+For this project I wanted to take a quick look into how post processing materials worked and specifically research a couple examples of celshading in unreal engine 5 in order to properly implement it into my own project.
+
+For this I turned to the unreal engine 5 documentation and a few online resources in order to properly implement it into my own project.
+
+I first looked at (Post Process Materials in Unreal Engine | Unreal Engine 5.7 Documentation | Epic Developer Community, s.d.) in order to get a better understanding of how post processing materials worked and how to implement them into my own project. I then also read through a helpful forum on the UE5 page that demonstrated toon shading in Unreal Engine 5 ([UE5] Anime/Toon/Cel Shading Model (WORKS WITH LAUNCHER ENGINE VERSIONS) - Development / Rendering, 2022). This specifically gave me a lot clearer picture on the kind of asset I wanted to create and how I would go about creating it in my project. 
+
+To round things out I then also briefly took a lot at an Unreal Engine created tutorial in their forums (Custom shading models directly in your material graphs | Community tutorial, 2024) so that I could loosely follow along with steps in my own project in order to create the celshading effect.
+
+## Analysis
+
+My main takeaway from my research was that creating a post process material to make a celshading effect was a lot more complex than I had initially thought. I had to do a lot of reading and research in order to properly implement it into my own project and I had to be very careful with the implementation of it as I didn't want to break anything. Since it relied heavily on the viewport of the player it was important that I also made sure it would be memory efficent as to not lower the performance of the overall project when my client was using it.
+
+For this I decided to implement a technique I had read about where I could create a limited range around the player with the post process material so that it wasn't being constantly applied to the whole level but rather just areas of the level far enough so that the player would never be able to tell that other aspects of the level were not rendered with my post process material. 
+
 ## Client Communication 
 
 Client communication for this particular project was incredibly limited. As I had a singular conversation with them in person about the sort of thing they were looking for when it came to this asset. 
@@ -175,19 +191,56 @@ With the pulse bullet, you can adjust the colour on either the head or tail effe
 
 ## Reflective Documentation
 
+## Baseline Research
+
+Once again, like the last asset I wanted to look into a few avenues for my research in order to better understand what I would need to do to properly implement the blood splattering effects alongside the gun bullet tracers for this client's assets. As I had barely worked with things like bullet tracers and Niagara Systems that required decals and impact decals, I wanted to look into how I could best implement them.
+
+I did a bit more searching on the unreal engine forums like I did with my last asset and stumbled upon a few posts that were incredibly helpful. I found a post that outlined a method for creating a basic blood niagara system, (Basic Niagara Blood -- UE5/UE4 Tutorial | Community tutorial, 2025). Whilst not as in-depth as I had hoped, it was still a good starting point and provided me with a solid foundation to build upon. It allowed me to generally understand what kind of nodes I would've needed to use in order to create the blood splattering effects and that I could apply these to my Niagara system with adjustments in order to make the blood splatter I wanted. 
+
+I also found this incredibly useful reddit post (SiiGulGames, 2024) which outlined how to properly optimise your Niagara system and that was incredibly helpful for me to understand how to properly optimise my Niagara system in order to ensure it was running at a good frame rate. Since the user who was asking the question about the frames was also using these effects for on death effects like I was planning to, I found this incredibly useful. I had understood that I wanted to ensure my system was running on a GPU based emitter rather than a CPU as the CPU emitter would tank the framerate incredibly and to ensure that my material I was using was masked instead of translucent to avoid drawing over eachother.
+
+For the bullet effects I couldn't find much in terms of documentation and or forum posts that matched exactly what I was looking for. I found this short forum post (Need advice on how you guys make bullet tracers for an FPS game. I have questions about niagara effects and problems of tracers flickering in high speeds. - Programming & Scripting / Blueprint - Epic Developer Community Forums, s.d.) though it did not quite outline what I was looking for. Thus I turned to youtube and found a really solid tutorial on bullet tracers and effects (Easy Bullet Trails & Bullet Hits with Niagara In Unreal Engine, 2023). This tutorial significantly helped with understanding and setting up bullet trails that I would need to create.
+
+The biggest upside of this tutorial too was how lightweight these bullet tracers and trails were so they would look incredibly effective whilst also maintaining a good frame rate. 
+
+## Analysis
+
+Taking away from my research I had mostly understood the general path to create the assets I needed and how long and difficult they would be based on what I had looked into. With the blood splatter being relatively simple and requiring mostly a more complex material setup than a Niagara system, I had expected it to be a bit more time consuming. However, I had underestimated the complexity of the Niagara system and the amount of time it would take to set up and optimise it. 
+
+With the bullet effects, I had expected these to be a bit lengthier as I had to properly implement and test them in the project to ensure it was all working correctly. They did end up taking a bit longer due to this fact too as I wanted to properly ensure they looked good and ended up using the third person arena shooter variant to see them in action. 
+
+
+
 ## Client Communication
 
 Client communication for this project was significantly better than the previous handover. Unlike the first asset, I made sure to send follow-up emails to confirm details alongside having various conversations in person. This provided a constant source of reference which was incredibly helpful for defining specific requirements and ensuring we were on the same page. Having a paper trail of our discussions meant I could always refer back to exactly what was agreed upon, preventing any ambiguity.
 
-![alt text](image-placeholder-1.png)
-*Figure 1: Email confirmation regarding asset details.*
+![alt text](image-18.png)
+*Figure 3: An inital email to clarify certain details of the asset as some of it required programming which was not in my specification of my role*
 
-![alt text](image-placeholder-2.png)
-*Figure 2: Further email correspondence clarifying requirements.*
+![alt text](image-19.png)
+*Figure 4: Client confirmation that they could handle the programming aspect of the asset*
+
+![alt text](image-20.png)
+*Figure 5: My confirmation that I would handle the asset creation and the client's confirmation that they would handle the programming aspect of the asset, with assistance to implement said programming if need be*
+
+These exchanges of emails allowed us to both better understand what we both needed to do to ensure this was a successful project exchange. Clarifying that one of his requested assets was actually purely programming and that I would not need to create an asset for him allowed the client to better understand and scope his project around this fact. This also allowed me to rescope my project as I had one less task asset to complete.
+
+Ultimately this allowed me to better manage my time and focus on the assets I needed to create, rather than being held back by the programming aspect of the project.
 
 ## Technical Problem-Solving
 
 My technical problem solving went a lot smoother during this project, largely due to understanding how to package assets based on my experience with the first asset. The lessons learned from the cel shader implementation allowed me to avoid similar issues and streamline the process. I encountered fewer roadblocks with the plugin structure itself, allowing me to focus more on the actual Niagara systems and material logic rather than fighting with the engine's file management.
+
+That being said. 
+
+![alt text](image-21.png)
+*Figure 6: The client reaching out that he had issues with implementation.*
+
+![alt text](image-22.png)
+*Figure 7: My response to his query.*
+
+Unfortunately due to the lateness of his response I was unable to adequately assist him in time to get his project with the gun effects set up and had wished he had contacted me earlier regarding the issues with the implementation so I could better assist him.
 
 ## Workflow and Time Management
 
@@ -199,4 +252,25 @@ The professional practice was about the same as the first project, though with b
 
 ## Quality vs Deadline
 
-The balance between quality and deadline remained consistent with the previous example. Despite the time constraints caused by the slow start, I prioritized the core functionality to ensure the asset was delivered to a good standard by the deadline. I had to make some hard choices about which 'nice-to-have' features to cut, focusing strictly on the requirements outlined in the brief. This ensured a functional, high-quality delivery rather than a half-finished feature-rich one.
+The balance between quality and deadline remained consistent with the previous example. Despite the time constraints caused by the slow start, I prioritized the core functionality to ensure the asset was delivered to a good standard by the deadline. Though as mentioned above, due to the clarification that one of the assets was purely programming, it also freed up some time for me to focus on the remaining two assets to make for the client, which allowed them to be of higher quality. 
+
+## BIBLIOGRAPHY
+
+Post Process Materials in Unreal Engine | Unreal Engine 5.7 Documentation | Epic Developer Community (s.d.) At: https://dev.epicgames.com/documentation/en-us/unreal-engine/post-process-materials-in-unreal-engine (Accessed  17/11/2025).
+
+[UE5] Anime/Toon/Cel Shading Model (WORKS WITH LAUNCHER ENGINE VERSIONS) - Development / Rendering (2022) At: https://forums.unrealengine.com/t/ue5-anime-toon-cel-shading-model-works-with-launcher-engine-versions/544226 (Accessed  17/11/2025).
+
+Custom shading models directly in your material graphs | Community tutorial (2024) At: https://dev.epicgames.com/community/learning/tutorials/ow0x/unreal-engine-custom-shading-models-directly-in-your-material-graphs (Accessed  17/11/2025).
+
+Basic Niagara Blood -- UE5/UE4 Tutorial | Community tutorial (2025) At: https://dev.epicgames.com/community/learning/tutorials/zB1W/unreal-engine-basic-niagara-blood-ue5-ue4-tutorial (Accessed  23/11/2025).
+
+SiiGulGames (2024) How to handle multiple VFX on death fps problems?. [Reddit Post] At: https://www.reddit.com/r/unrealengine/comments/1dvrwn4/how_to_handle_multiple_vfx_on_death_fps_problems/ (Accessed  23/11/2025).
+
+Need advice on how you guys make bullet tracers for an FPS game. I have questions about niagara effects and problems of tracers flickering in high speeds. - Programming & Scripting / Blueprint - Epic Developer Community Forums (s.d.) At: https://forums.unrealengine.com/t/need-advice-on-how-you-guys-make-bullet-tracers-for-an-fps-game-i-have-questions-about-niagara-effects-and-problems-of-tracers-flickering-in-high-speeds/2234150/2 (Accessed  23/11/2025).
+
+Easy Bullet Trails & Bullet Hits with Niagara In Unreal Engine (2023) Directed by Aziel Arts. At: https://www.youtube.com/watch?v=kdq82mAoKIc (Accessed  23/11/2025).
+
+
+
+
+
