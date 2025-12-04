@@ -1,0 +1,8 @@
+Begin Object Class=/Script/Foliage.FoliageType_InstancedStaticMesh Name="SMF_Tree" ExportPath="/Script/Foliage.FoliageType_InstancedStaticMesh'/Game/Materials/SMF_Tree.SMF_Tree'"
+   Mesh="/Script/Engine.StaticMesh'/Game/CommonHazel/Geometry/SimpleWind/SM_CommonHazel_Field_01.SM_CommonHazel_Field_01'"
+   UpdateGuid=F237F24849CB4533C777BDB40229C585
+   MeshBounds=(Origin=(X=12.263336,Y=-0.088989,Z=484.332620),BoxExtent=(X=533.800323,Y=533.491455,Z=484.798972),SphereRadius=626.183068)
+   LowBoundOriginRadius=(X=-7.372236,Y=0.864382,Z=75.169891)
+   ScaleCurve=(EditorCurveData=())
+   DensityFalloff=(FalloffCurve=(EditorCurveData=()))
+End Object
