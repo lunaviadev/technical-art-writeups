@@ -2,6 +2,18 @@
 
 ## 1. Animation Blueprint with Locomotion System
 
+### Research
+
+The research for this project was scarce due to the fact that a lot of the stuff I needed to learn was covered in class however I still did some research on my own due to the fact that the comabt system I was creating was a lot more akin to the darksouls series and thus adjustments needed to be made. 
+
+For the first task I looked into Unreal's documentation of locomotion systems in engine. (Locomotion in Unreal Engine | Unreal Engine 5.7 Documentation | Epic Developer Community, s.d.). This vae me a pretty clear idea of how to implement the locomotion system in my character.
+
+Furthermore, given the dark souls inspiration I was going for, I did a little research into the Dark Souls movement system. (How do you implement a DodgeRoll like Dark souls? - Programming & Scripting / Blueprint, 2017). I found this incredibly useful forum post discussing the movement system of dark souls and how it works and specific implementations into unreal. 
+
+I also briefly read through the dark souls wiki in order to better understand the nuances of its combat system. (COMBAT, 2023). For obvious reasons I would have to cut a lot of it but it was interesting to see how it specifically worked and what parts I could adapt into my own system. 
+
+---
+
 For the first part of this task, I set up the Animation Blueprint `ABP_Alien` to handle the character's basic movement. The core of this is the Event Graph and the Anim Graph working together.
 
 In the Event Graph, I'm using `TryGetPawnOwner` to get the character reference and then casting it to `BP_ThirdPersonCharacter` to access its variables. I'm updating `Speed` by getting the velocity length, and `Direction` using `CalculateDirection`. I also check if the character is in the air using `IsFalling` from the movement component. These variables drive the state machine logic.
@@ -29,6 +41,14 @@ The Locomotion state machine has the following states:
     The combat animations aren't actually inside the locomotion state machine. They are handled by a Montage Slot (UpperBody or DefaultSlot) that sits after the state machine in the Anim Graph. This means the locomotion continues running in the background, but the combat montage overrides specific bones when it plays.
 
 ## 2. Combat Combo System Using Animation Montages
+
+For the combo system I wanted to look into animation notifiers primarily as they were the key to making things work correctly. As per usual I read up on the documentation for Animation notifiers (Animation Notifies in Unreal Engine | Unreal Engine 5.7 Documentation | Epic Developer Community, s.d.) so that I could gain a deeper understanding on the inner workings of the animation notifiers. From reading up on this I effectively learned how to implement animation notifiers into an animation montage and how to use them to trigger events in blueprints.
+
+I also looked at the animation montage documentation (Animation Montage in Unreal Engine | Unreal Engine 5.7 Documentation | Epic Developer Community, s.d.) in order to properly relate it back to my animation notifier research. 
+
+As a baseline to start off my project I then watched through this useful tutorial (How to Create a Souls-Like Game in Unreal Engine 5 - Full Course, 2024) which allowed me to implement a combo montage, with included blueprints to allow it all to work properly. 
+
+---
 
 I implemented the combat system primarily within a dedicated Blueprint Component called `BPC_Combat`. This component is attached to the main character, `BP_ThirdPersonCharacter`. This modular approach keeps the combat logic separate from the movement logic. I also created a montage called `Stable_Sword_Outward_Slash_Montage`.
 
@@ -77,6 +97,12 @@ I also implemented a Lock-On system (`IA_Lock`) within `BPC_Combat` that uses a 
 
 ## 3. Animation Layering & Slot System
 
+The animation blending was a bit more confusing for me as I didn't quite understand the whole bone blending to begin with. I read through the provided documentation (Using Layered Animations in Unreal Engine | Unreal Engine 5.7 Documentation | Epic Developer Community, s.d.) though this didn't really help me much with understanding how to actually implement it into my project. 
+
+I then watched this youtube video (How to Blend Animations in Unreal Engine 5 - YouTube, s.d.) to help me understand how to implement the animation layering system. This was a lot more beneficial to see it visualised and eventually allowed me to actually implement it into my project.
+
+---
+
 Though not featured in my combat showcase, I implemented the animation layering system to allow the character to attack while moving. I eventually cut the ability to do this though as in an effort to make the combat more similar to the Dark souls series as they dont allow movement while attacking for sword based weapons.
 
 In the Anim Graph, I used the `Layered Blend Per Bone` node.
@@ -100,3 +126,21 @@ For the `Layered Blend Per Bone` node, I set the **Bone Name** to `spine_01`. Th
 
 *   **What blend weights feel most natural for your character?**
     I usually leave it at 1.0 for attacks so the attack looks powerful. However, for things like "hit reactions" while running, I might blend it at 0.8 so some of the running motion still affects the upper body, making it look less robotic.
+
+
+Locomotion in Unreal Engine | Unreal Engine 5.7 Documentation | Epic Developer Community (s.d.) At: https://dev.epicgames.com/documentation/en-us/unreal-engine/locomotion-in-unreal-engine (Accessed  10/11/2025).
+
+How do you implement a DodgeRoll like Dark souls? - Programming & Scripting / Blueprint (2017) At: https://forums.unrealengine.com/t/how-do-you-implement-a-dodgeroll-like-dark-souls/89292 (Accessed  10/11/2025).
+
+COMBAT (2023) At: https://darksouls.wiki.fextralife.com/COMBAT (Accessed  10/11/2025).
+
+Animation Notifies in Unreal Engine | Unreal Engine 5.7 Documentation | Epic Developer Community (s.d.) At: https://dev.epicgames.com/documentation/en-us/unreal-engine/animation-notifies-in-unreal-engine (Accessed  10/11/2025).
+
+Animation Montage in Unreal Engine | Unreal Engine 5.7 Documentation | Epic Developer Community (s.d.) At: https://dev.epicgames.com/documentation/en-us/unreal-engine/animation-montage-in-unreal-engine (Accessed  10/11/2025).
+
+How to Create a Souls-Like Game in Unreal Engine 5 - Full Course (2024) Directed by Gorka Games. At: https://www.youtube.com/watch?v=Hs2sM7eFf6Q (Accessed  10/11/2025).
+
+Using Layered Animations in Unreal Engine | Unreal Engine 5.7 Documentation | Epic Developer Community (s.d.) At: https://dev.epicgames.com/documentation/en-us/unreal-engine/using-layered-animations-in-unreal-engine (Accessed  10/11/2025).
+
+How to Blend Animations in Unreal Engine 5 - YouTube (s.d.) At: https://www.youtube.com/watch?v=wOIlkertaLA (Accessed  10/11/2025).
+
