@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>writeupforweek2.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="week-2-task-%E2%80%93-material-systems-and-techniques">Week 2 Task – Material Systems and Techniques</h1>
+<p><strong>Unit:</strong> Technical Art (Level 5 Games Development)</p>
+<h2 id="liliana-bellas---2326296">Liliana Bellas - 2326296</h2>
+<h3 id="deliverable-one---stylized-water-material-with-world-position-offset">Deliverable One - Stylized Water Material with World Position Offset</h3>
+<hr>
+<p>Using a mix of Unreal's <code>World Position Order </code>, <code>LineralInterprolate</code> and <code>Texture Samples</code> I was able to create a custom dynamic water material that including foam shading on surface edges.</p>
+<p><img src="2025-10-0920-50-18-ezgif.com-video-to-gif-converter.gif" alt="alt text">
+Figure 1. Water material being showcased in a test level.</p>
+<hr>
+<h4 id="section-one---setting-up-normals">Section One - Setting up normals</h4>
+<p>To start off, I had to create a water material with a few base colours and normal map textures in order to have a realistic looking water effect.</p>
+<p><img src="image.png" alt="alt text">
+Figure 2. Screenshot of my normals section in my blueprints.</p>
+<p>As highlighted above in Figure 2, I set up two basic texture samples and used unreal's built in <code>T_Water_N</code> texture as a bsis for my texture samples. To avoid the water just looking stationary I also added <code>Panner</code> nodes in order to gradually move the axises of the two normal maps on the X and Y values respectively. I then used a <code>BlendAngleConnectedNormals</code> into a <code>Lerp</code> to blend the two normal textures together and to alllow both axises to flow.</p>
+<hr>
+<h4 id="section-two---water-colouring">Section Two - Water colouring</h4>
+<p>Before moving onto setting up WPO and the crashing foam I very quickly set up three colours for my <code>Single Layer Water Material</code> node, creating a scattering colour, for light scattering, a default water colour and an emissive colour which was used to give the rims of the water a slight glow to them to give more depth. As shown in the figure below I then also created paramaters for all of them so I could adjust their values in any instance I create.</p>
+<p><img src="image-1.png" alt="alt text">
+Figure 3. Screenshot of my water colouring blueprints.</p>
+<hr>
+<h4 id="section-three---world-position-offset">Section Three - World Position Offset</h4>
+<p>I then moved on to setting up my World Position Offset in order to simulate waves in the water which allowed my water texture to have a much more realistic and dynamic look to it and overall enhances the general feel of the texture.</p>
+<p><img src="image-2.png" alt="alt text">
+Figure 4. My World Position Offset blueprints.</p>
+<h4 id="why-use-wpo">Why use WPO?</h4>
+<p>Using WPO greatly benefits the performance of a game as it works by simply adjusting vertex values to emulate the look of movement without actually moving any kind of bones or requiring animation data which allows lower end computers to more effectively run the game due to less calculations running per frame. This is especially great for creating smaller scale projects where you want to prioritise performance. Furthermore it also allows for runtime control due to it simply tweaking values, things like wind or rain could effect your WPO without requiring any extra work.</p>
+<h4 id="controlling-wave-direction-and-intensity">Controlling Wave Direction and Intensity</h4>
+<p>Wave direction and intensity is controlled via parameters set up in the world position offset blueprints and means that for any given instance of the material, tweaking these parameters allows the direction of the wave and the intensity of those waves to be greatly adjusted. You can also apply parameters to values such as wave count so that waves become more obvious and frequent if your environment is a windy sea for example, as waves would be more prominent in a setting like that compared to a calm shore.</p>
+<h4 id="vertex-density">Vertex Density</h4>
+<p>To allow for smooth wave deformation the WPO would ideally need 2-4 vertices per wave cycle so that it looks continious and natural. This would scale with size of water though as a general rule of thumb it will look best with that level of vertex density.</p>
+<h4 id="reacting-to-lighting-conditions">Reacting to lighting conditions</h4>
+<p>Under my normals section (Figure 2) you can see that there are parameters in place that handle refraction for water, this means that my water will refract light depending on how sunny / cloudy my scene is. It is natural that light bounces off water. As you can see in the gif below with the sun, the light is bouncing off the water and showing clear refraction as the light bounces off the surface.</p>
+<p><img src="2025-10-2105-54-44-ezgif.com-video-to-gif-converter-1.gif" alt="alt text"></p>
+<p>Though in a more overcast where the sun is not directly in view the water refracts less light and the surface of the water looks closer to it's original colour.</p>
+<p><img src="2025-10-2105-58-06-ezgif.com-video-to-gif-converter-1.gif" alt="alt text"></p>
+<h3 id="deliverable-two---material-parameter-collection-mpc-system">Deliverable Two - Material Parameter Collection (MPC) System</h3>
+<hr>
+<h3 id="deliverable-three---dynamic-material-instance-with-runtime-control">Deliverable Three - Dynamic Material Instance with Runtime Control</h3>
+<hr>
+<p>Utilising unreal's <code>Emissive Colour</code> and <code>Opacity Mask</code> features for materials I was able to create a Dynamic Material Instance which actively changes during run time. I decided to create a dissolving material to allow for objects or entities in my game to have a dissolving effect if they were to be destroyed.</p>
+<hr>
+<h4 id="section-one---setting-up-the-material">Section One - Setting up the material</h4>
+<p>To begin with I created a <code>Constant Vector 3</code> to use as my base colour, this could later be swapped out with any given colour and or texture sample though for now I left it as just a solid colour. I then created an <code>Emissive Colour</code> and <code>Opacity Mask</code>. The Emissive colour would control the colour of which the dissolve effect would be, for this case I chose red just because it's associated with death or damage. I then attached two parameters <code>DissolveEdge</code> and <code>GlowStrength</code> as they allowed me to control how much of the edge of the noise texture would have the dissolve effect and then the glow strength would determine how strong the red was glowing on the material. Then created an opacity mask by using a generic noise texture I had on file and adding two parameters <code>Dissolve</code> and <code>DissolveIntensity</code> to it which controls how far the material has been disolved and the intensity of which the dissolve looks like.</p>
+<p><img src="image-3.png" alt="alt text"></p>
+<p>Figure 5. DMI setup.</p>
+<p><img src="image-4.png" alt="alt text"></p>
+<p>Figure 6. Preview of the dissolve effect in editor at about 50%.</p>
+<h4 id="section-two---runtime-control">Section Two - Runtime Control</h4>
+<p>To allow this dissolve effect to play out in real time I created a basic placeholder actor and just named it dissolvingobj and created a cube with the previously created material on it. I then created a short begin play blueprint which would dissovle the material over the course of ten seconds when the game was started (see below) and then destroy the object as soon as that timeline was finished.</p>
+<p><img src="image-5.png" alt="alt text"></p>
+<p>Figure 7. Blueprints for the eventgraph of dissolving object actor.</p>
+<p>On begin play the game would then use a timeline that occured over ten seconds to show the material going from -1 (no dissolve) on the dissolve value to 1 (fully disolved) and you would be able to see this occur in real time.</p>
+<p><img src="2025-10-2106-20-20-ezgif.com-video-to-gif-converter-1.gif" alt="alt text"></p>
+<p>The material has four adjustable parameters <code>Dissolve</code> <code>DissolveIntensity</code> <code>DissolveEdge</code> and <code>GlowStrength</code> to allow this material to be customised for differing dissolve effects. The dissolve material can also be applied in different circumstances, for example having a check run on an enemy that when health reaches 0 the dissolve effect would begin to play and the actor would be destroyed to simulate said enemy being defeated.</p>
+<h4 id="when-should-you-use-dmi-over-material-instance-constant">When should you use DMI over Material Instance Constant</h4>
+<p>One of the largest benefits to using DMI over MIC is that DMI can be editable at runtime, meaning that during the game the material can be changed via blueprints or c++ etc, this isn't something that's possible with MIC as it can only be adjusted on compile time or in editor meaning that it will always look the same. MIC is only preferred when you need to create a material that is static or will have a preset variation, rather than having a dynamic variation like a dissolving effect.</p>
+<h4 id="how-to-optimise-dmi-creation-and-updates">How to optimise DMI creation and updates.</h4>
+<p>The easiset way to optimise your DMI is to avoid per-frame updates. DMIs will become pretty expensive to use if your game has to update your DMI every single frame rather than just when specific events happen (like an enemy reaching 0 health). Due to DMIs being created at runtime it's a lot more costly on CPU and GPU to keep them always running so ensure that you only have DMIs that run after specific events and not on every frame.</p>
+<h4 id="gameplay-scenarios-that-benefit-from-runtime-material-modification">Gameplay Scenarios that benefit from runtime material modification</h4>
+<p>There are a lot of scenarios that benefit from runtime material modificaiton. Things like damage feedback, weather accumulation, invisbility effects and interactive parts of the environment are all things that come to mind. Showing enemy damage feedback in real time wouldn't be possible without DMI on runtime as you wouldn't be able to adjust the material and then change it back quickly without it. The same applies to things like making your character wet in rain or showing lights when completing puzzles, things like this all require modification to materials in runtime that simply wouldn't be possible if the material were to be static.</p>
+<h3 id="deliverable-four---parallax-occlusion-mapping-pom-material">Deliverable Four - Parallax Occlusion Mapping (POM) Material</h3>
+<hr>
+<p>For my Parallax Occlusion Mapping I decided to use my rock material that I already had in my project as it felt the most suitable to display the effects of POM. Utilising Unreal's <code>ParallaxOcclusionMapping</code> node I was able to simply set up a POM UV that I could then plug into my main material to allow for parallax occlusion mapping on all my environment that used my rock material. I also used (UE5 l Realistic Textures with Parallax Occlusion Mapping (POM) l Material Tutorial l Unreal Engine 5, 2023) in order to help me make this POM.</p>
+<h4 id="section-one---setting-up-the-material">Section One - Setting up the material</h4>
+<p>As mentioned already I had a pre-existing rock material which I was using as a basis for the POM material. Thus I had already set up texture samples and tweaked values to make the rock look good.</p>
+<p><img src="image-6.png" alt="alt text"></p>
+<p>Figure 8. A look at the rock texture before any POM was applied.</p>
+<p>After applying my rock material to a plane I then began working on setting up the <code>ParallaxOcclusionMapping</code> node with all the necessary parameters in order to support POM UVs.</p>
+<p><img src="image-7.png" alt="alt text"></p>
+<p>Figure 9. My POM blueprints.</p>
+<p>As seen in Figure 9, using unreal's <code>ParallaxOcclusionMapping</code> node I created a texture object that took the height map texture of my rock alongside a few other nodes and parameters in order to set up the the output of the POM. I created a variety of parameters to control the value of the steps in the POM alongside other nodes. I then linked the 3 named reroutes of the output back into my main texture output in order to apply the POM effect.</p>
+<p><img src="image-8.png" alt="alt text"></p>
+<p>Figure 10. Rock texture with POM enabled.</p>
+<p>As you can see in Figure 10, after the POM node was set up with its parameters and hooked up to the main texture output, the rock material immediately shows a lot clearer depth and height to it with visible dips and heights being visible when compared against the first material.</p>
+<h4 id="how-does-step-count-effect-performance-and-visuals">How does step count effect performance and visuals?</h4>
+<p>Step count directly correlates to how good the parallax effect due to the fact that step count equates to how many raymarching samples the shader takes in the height map, which then approximates occlusion and depth, with more steps equaling more samples. This impacts the performance greatly. 32-64 steps provides the clearest depth and occlusion detail though comes at a heavy performance cost due to the fact the game has to calculate and simulate all the edges and occlusion, this becomes a heavy task for most computers especially for large scale surfaces. In figure 10 I used a step count of 64 purely to demonstrate it to it's extreme, though if I were to use POM for regular game usage I would typically use steps between 2-8.</p>
+<h4 id="what-surfaces-benefit-the-most-from-pom">What surfaces benefit the most from POM</h4>
+<p>Typically more rocky surfaces with very visible depth gaps and height variation will benefit the most from POM due to the fact that the effects of POM will be a lot more visible on these kinds of surfaces in comparison to something that's a bit more rounded or curved with less obvious depth gaps.</p>
+<h4 id="how-does-pom-compare-to-simple-bump-offset">How does POM compare to simple bump offset?</h4>
+<p>POM utilises things like height map occlusion and parallax in order to accurately simulate depth and height whereas bump offset only takes into account view angle and height which leads to a less realistic depth illusion being created. POM also takes into account a large amount of texture samples whereas bump offset only uses one. POM is often used over bump offset when you need realistic depth with good edge quality, whereas bump offset is preferred when the depth illusion doesn't need to be nearly as good and just needs to be slight. You'll often use a mix of both during the process of creating materials for games due to their advantages and limitations.</p>
+<h4 id="limitations-at-silhouette-edges">Limitations at silhouette edges</h4>
+<p>POM's biggest drawback is it's a screen space illusion rather than real geometry meaning that the mesh still remains flat, so if you were to walk over it your character wouldnt move up and down depending on the heights and depths, they'll walk as if it were a completely flat surface, which it is. It also means that shadows and reflections dont follow the fake height as it's still using the base geometry and not the faked height.</p>
+<h3 id="deliverable-five---option-a-post-process-material">Deliverable Five - (Option A) Post Process Material</h3>
+<p>For this task I decided to go with creating a post process material that would alter the visual look of my game. From the start I already had settled on creating a post process material that would make my game look more akin to PS2 era games as I'm a big fan of the nostalgic retro look. I used (How To Create A Pixelated Effect - Unreal Engine 5 Material Tutorial, 2025) in order to assist with creating an effective and easy post processing material.</p>
+<h3 id="section-one---creating-the-material">Section One - Creating the Material.</h3>
+<p>Utilising a variety of nodes such as <code>Resolution X,Y</code>, <code>ScreenPosition</code> and <code>CustomStencil</code> I was able to create a convincing pixel filter that would apply itself to the entire game and viewport.</p>
+<p><img src="image-9.png" alt="alt text">
+Figure 11. Pixel effect blueprints</p>
+<p>To create the pixel effect on the screen I had to adjust the <code>ViewportUV</code> by dowscaling the overall resolution of the game. This is achieved by setting a default X and Y resolution before running them through a switch parameter and dividing said parameter before eventually applying that downscaled resolution into a <code>SceneTexture:PostProcessingInput</code> in order to allow it to be outputted as an emissive colour.</p>
+<p><img src="image-10.png" alt="alt text">
+Figure 12. Posterization</p>
+<p>To more accurately mimic the look of older games I then set up a lerp of both post process inputs which would then be ran through a series of functions in order to limit the amount of visible colours used alongside things like desaturating the colours and limiting their brightness. This was done in an effort to closer replicate the old look as they had a limited amount of colours (256 to be exact) that they could work with so the colour range for older games wasn't nearly as high.</p>
+<p><img src="image-11.png" alt="alt text">
+Figure 13. Exlucding this effect from specified objects</p>
+<p>I then added a small <code>SceneTexture:CustomStencil</code> that would allow this effect to be bypassed and not effect certain objects if I wanted it to. This was done by using a bitmask which would then flip the effect of the pixelisation, setting it back to a regular resolution for an object. Though ultimately I didn't use this for anything in my scene.</p>
+<hr>
+<h1 id="bibliography">BIBLIOGRAPHY</h1>
+<p>UE5 l Realistic Textures with Parallax Occlusion Mapping (POM) l Material Tutorial l Unreal Engine 5 (2023) Directed by Coreb Games. At: https://www.youtube.com/watch?v=K18qfcTFkNw (Accessed  07/11/2025).</p>
+<p>How To Create A Pixelated Effect - Unreal Engine 5 Material Tutorial (2025) Directed by Pitchfork Academy. At: https://www.youtube.com/watch?v=jxOO_xjQp-M (Accessed  07/11/2025).</p>
+
+</body>
+</html>

@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>week3writeup.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h3 id="week-3-deliverable-one---height-based-blending-system">Week 3 Deliverable One - Height based blending system</h3>
+<p>As part of the first deliverable I created a height based blending system that would automatically blend snowy mountains with grassy ones dependant on the height of certain peaks in the map. This was done by taking in the world position and using a vertex normal plugged in to a blend material attributes in order to allow unreal to calculate, based on dependant parameters I had set up, how to create the material height blend.</p>
+<p><img src="image-13.png" alt="alt text">
+Figure 14. Height blending blueprint</p>
+<p>As seen in figure 14, I created height blending by using an <code>Absolute World Position</code> that was then ran through various functions like divide, add and power, each with their own parameters in order to allow me to tweak the parameters in a material instance after it would be applied to the terrain. The <code>Absolute World Position</code> only needs Z as the Z axis is what determines height. <code>VertexNormalWS</code> is then ran through a mask and various functions each with their own parameters and eventually put into a multiply alongside the previous <code>Absolute World Position</code> in order to be plugged into the alpha of a <code>BlendMaterialAttributes</code> that would then be plugged into the landscape master material.</p>
+<p><img src="image-14.png" alt="alt text"></p>
+<p>Figure 15. Set up of materials that were used and then also plugged into the master material.</p>
+<p>Figure 15 also displays my setup of materials that each have their own contrast parameters used in order to determine certain materials in my landscape layer blend, they are all put into a named reroute for extra cleanliness.</p>
+<p><img src="image-12.png" alt="alt text">
+Figure 16. Showcasing the blending</p>
+<p>As seen in figure 16, after tweaking my material instance values I ended up with a blend that looked pretty good in my opinion. Obviously with my post processing material from the previous week some features would be distorted a little though you can see near the peak how well the blend looks.</p>
+<h3 id="how-do-you-prevent-harsh-transitions-while-maintaining-distinct-biome-characteristics">How do you prevent harsh transitions while maintaining distinct biome characteristics?</h3>
+<p>To prevent harsh transitions most of it boils down to playing around with various parameters in order to create a realistic looking blend that keeps biome characteristics incredibly visible towards the sweet spot of their biome, in the case of snow, near the peak where the most snow would formulate. Then just gradually tweaking values in order to make sure the falloff beneath that feels realistic and gradual rather than instant and  harsh. I also looked into (Schütz, 2024) and (Landscape Materials in Unreal Engine | Unreal Engine 5.6 Documentation | Epic Developer Community, s.d.) to deepen my understanding of height and layered blending.</p>
+<h3 id="what-height-ranges-work-best-for-different-landscape-scales">What height ranges work best for different landscape scales?</h3>
+<p>Based on Epic games' official documentation (Landscape Technical Guide in Unreal Engine | Unreal Engine 5.6 Documentation | Epic Developer Community, s.d.) your ideal Z value for your terrain will usually fall within the 250-400 range with some variance depending on what exact landscape you're making / using. In my case my landscape's Z value was 400 in order to better emphasise the mountains of the terrain I chose. Though for flatter landscapes you would probably be on the lower end. (What is the recommended size for a height map (terrain) to import in Unreal Engine - Development / World Creation, 2018). Based on some user forums, a general rule of thumb people use is that 1 pixel in a heightmap is equivalent to 1 square meter and thus by following this rule of thumb you could end up with decently realistic heightmaps.</p>
+<h3 id="how-does-height-blending-interact-with-other-blending-systems">How does height blending interact with other blending systems?</h3>
+<p>Height blending typically works well with slope blending as by having both systems in place you can better show off things like slope blending with nicely height blended landscapes too and the two are often seen used together in landscaping in order to create beautiful landscapes. Especially if layer blending is also involved, as seen in this forum (Sharper landscape layer height blending? - Development / Rendering, 2021).</p>
+<hr>
+<h3 id="week-3-deliverable-three---foliage-type-integration-and-generation">Week 3 Deliverable Three - Foliage Type Integration and Generation</h3>
+<p>For this week's research I only had to look into procedural generation for foliage landscapes. I read through Unreal's provided documentation to start out with (Procedural Foliage Tool in Unreal Engine | Unreal Engine 5.7 Documentation | Epic Developer Community, s.d.) and gathered a basic idea of implementation and how I would go about creating this in my project.</p>
+<p>I then looked into watching a video on YouTube to better understand how to implement this in my project. (Using Procedural Foliage Tool in UNREAL Engine | Community tutorial, 2024).</p>
+<p>This made it pretty easy to understand going in that I would only need a few core components to implement this in my project. With a few assets for the actual foliage I wanted to generate, and a single procedual foliage spawner to manage the distribution of different plant types across the terrain. The rest lay solely on tweaking values to ensure it looks good.</p>
+<hr>
+<p>For the final deliverable, I integrated a procedural foliage system to populate the landscape with vegetation. I used a <strong>Procedural Foliage Spawner</strong> named <code>PFS_Grassland</code> to manage the distribution of different plant types across the terrain.</p>
+<p><img src="image.png" alt="alt text">
+Figure 19. Procedural Foliage Spawner setup</p>
+<p>As seen in Figure 19, the <code>PFS_Grassland</code> spawner includes three distinct foliage types: Grass, Flowers, and Trees. Each type references a specific &quot;Instanced Static Mesh&quot; foliage type asset with unique settings for density and distribution.</p>
+<ol>
+<li>
+<p><strong>Grass (<code>SMF_Grass</code>)</strong>: This foliage type uses a wild grass mesh (<code>SM_vlkhcbxia_VarA</code>). I set the <strong>Initial Seed Density</strong> to <code>10.0</code> and the <strong>Average Spread Distance</strong> to <code>90.0</code>. This ensures a dense, lush ground cover that fills the open spaces of the landscape. It is set to <code>bCanGrowInShade=True</code>, allowing it to appear even in shadowed areas.</p>
+</li>
+<li>
+<p><strong>Flowers (<code>SMF_Flowers</code>)</strong>: To add color and variety, I included a field poppy mesh (<code>SM_vmcobd0ja_VarB</code>). The density for flowers is lower, with an <strong>Initial Seed Density</strong> of <code>1.5</code> and an <strong>Average Spread Distance</strong> of <code>40.0</code>. This creates scattered patches of flowers rather than a uniform carpet, mimicking natural growth patterns.</p>
+</li>
+<li>
+<p><strong>Trees (<code>SMF_Tree</code>)</strong>: For the larger vegetation, I used a common hazel tree mesh (<code>SM_CommonHazel_Field_01</code>). The tree settings are left at defaults in the provided file, but the spawner handles their placement to ensure they don't overlap unrealistically with the smaller vegetation layers.</p>
+</li>
+</ol>
+<p><img src="image-1.png" alt="alt text">
+Figure 20. Final landscape with procedural foliage</p>
+<p>Figure 20 demonstrates the final result where the <code>PFS_Grassland</code> has been simulated on the landscape. The grass and flowers provide a rich ground layer, while the trees add verticality and scale to the environment.</p>
+<h3 id="how-do-you-create-believable-ecosystem-distributions">How do you create believable ecosystem distributions?</h3>
+<p>To create believable distributions, it's important to layer foliage types based on their roles in the ecosystem. I used high-density grass as a base layer, scattered flowers for detail, and trees as accent pieces. Adjusting the <code>Initial Seed Density</code> and <code>Average Spread Distance</code> allows for natural clustering, preventing the &quot;perfectly spaced&quot; look that can feel artificial.</p>
+<h3 id="what-factors-determine-foliage-density-in-real-environments">What factors determine foliage density in real environments?</h3>
+<p>In real environments, foliage density is determined by factors like sunlight availability, soil quality, and competition for resources. In Unreal, we simulate this using parameters like <code>bCanGrowInShade</code> and density settings. For example, the grass has a high density to simulate a healthy meadow, while flowers are sparser, representing their more specific growth requirements.</p>
+<h3 id="how-do-you-balance-visual-richness-with-performance">How do you balance visual richness with performance?</h3>
+<p>Balancing richness and performance involves careful management of density and draw calls. By using <strong>Instanced Static Meshes</strong> (as referenced in the <code>FoliageType_InstancedStaticMesh</code> classes), the engine can render thousands of instances efficiently. Additionally, setting appropriate cull distances and using LODs (Levels of Detail) for the meshes ensures that the game runs smoothly even with dense vegetation.</p>
+<h2 id="bibliography">BIBLIOGRAPHY</h2>
+<p>Schütz, A. (2024) How to Use Landscape Layer Blending and Height Blending | Unreal Engine 5 Tutorial. At: https://artur-schuetz.com/tutorials/article/how-to-use-landscape-layer-blending-and-height-blending (Accessed  07/11/2025).</p>
+<p>Landscape Materials in Unreal Engine | Unreal Engine 5.6 Documentation | Epic Developer Community (s.d.) At: https://dev.epicgames.com/documentation/en-us/unreal-engine/landscape-materials-in-unreal-engine (Accessed  07/11/2025).</p>
+<p>Landscape Technical Guide in Unreal Engine | Unreal Engine 5.6 Documentation | Epic Developer Community (s.d.) At: https://dev.epicgames.com/documentation/en-us/unreal-engine/landscape-technical-guide-in-unreal-engine (Accessed  07/11/2025).</p>
+<p>What is the recommended size for a height map (terrain) to import in Unreal Engine - Development / World Creation (2018) At: https://forums.unrealengine.com/t/what-is-the-recommended-size-for-a-height-map-terrain-to-import-in-unreal-engine/106477? (Accessed  07/11/2025).</p>
+<p>Sharper landscape layer height blending? - Development / Rendering (2021) At: https://forums.unrealengine.com/t/sharper-landscape-layer-height-blending/155838? (Accessed  07/11/2025).</p>
+<p>Procedural Foliage Tool in Unreal Engine | Unreal Engine 5.7 Documentation | Epic Developer Community (s.d.) At: https://dev.epicgames.com/documentation/en-us/unreal-engine/procedural-foliage-tool-in-unreal-engine (Accessed  07/11/2025).</p>
+<p>Using Procedural Foliage Tool in UNREAL Engine | Community tutorial (2024) At: https://dev.epicgames.com/community/learning/tutorials/5V6Z/fortnite-using-procedural-foliage-tool-in-unreal-engine (Accessed  04/12/2025).</p>
+
+</body>
+</html>

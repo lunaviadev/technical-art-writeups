@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>outsourcingdoc.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h3 id="first-handover">FIRST HANDOVER.</h3>
+<hr>
+<h1 id="ps2-style-cel-shader-documentation">PS2 Style Cel Shader Documentation.</h1>
+<h3 id="notable-information">Notable information</h3>
+<p>Asset Type - Material / Post Process</p>
+<p>Author - Liliana Bellas (2326296@students.ucreative.ac.uk)</p>
+<p>Client - Frank Budd (2310346@students.ucreative.ac.uk)</p>
+<p>Delivery Date - 28/11/2025</p>
+<p><em>Version 1.0</em></p>
+<hr>
+<h2 id="asset-overview">Asset Overview</h2>
+<p>The PS2 style cel-shader overlays an entire scene with a very basic celshade that desaturates the scene to create a more low quality style look to all scenes it is used in.</p>
+<p>It's key features are that it provides a celshaded look to all assets.</p>
+<p>Without Celshader
+<img src="image-1.png" alt="alt text"></p>
+<p>With Celshader
+<img src="image-2.png" alt="alt text"></p>
+<p>Cel Shader on various objects.
+<img src="image-3.png" alt="alt text"></p>
+<h2 id="intergration-guide">Intergration Guide</h2>
+<p>To add this to your project, simply download the provided zip file, create a plugins folder in your unreal directory and then drag and drop the zip file in there.</p>
+<p><img src="image-4.png" alt="alt text"></p>
+<p>Then go to your plugins settings for your project and search 'PS2' and my plugin should show up. You will most likely then be asked to restart your editor to allow the folder to show up in your project.</p>
+<p>From there you can navigate over to the content folder and you'll find the celshader material I have made!</p>
+<p><img src="image-5.png" alt="alt text"></p>
+<p>Simply create a postprocess volume in your scene and navigate down to the post process materials tab.</p>
+<p><img src="image-6.png" alt="alt text"></p>
+<p>From there you can add a new entry into the array and select the CelShadeSimple material and it should apply to your scene!</p>
+<h2 id="customisation">Customisation</h2>
+<p>There's limited customistaion as I was unsure of how specific you wanted the shader but if you'd like to adjust the shader's strength simply open up the material asset and adjust the created paramaters as you'd desire.</p>
+<p><img src="image-7.png" alt="alt text"></p>
+<p>If you want a different style of shader, let me know and I'd be happy to create a new one for you!</p>
+<h2 id="technical-documentation">Technical Documentation</h2>
+<p>This postprocess material uses a variety of desaturate and divide nodes in order to create a celshaded effect which reduces light and turns it into something more akin to lighting effects from the PS2. This is done by clamping values, running them through masks and then using scenetextures to create this effect.</p>
+<p><img src="image-8.png" alt="alt text"></p>
+<p><img src="image-9.png" alt="alt text"></p>
+<hr>
+<h2 id="reflective-documentation">Reflective Documentation</h2>
+<h2 id="baseline-research">Baseline research</h2>
+<p>For this project I wanted to take a quick look into how post processing materials worked and specifically research a couple examples of celshading in unreal engine 5 in order to properly implement it into my own project.</p>
+<p>For this I turned to the unreal engine 5 documentation and a few online resources in order to properly implement it into my own project.</p>
+<p>I first looked at (Post Process Materials in Unreal Engine | Unreal Engine 5.7 Documentation | Epic Developer Community, s.d.) in order to get a better understanding of how post processing materials worked and how to implement them into my own project. I then also read through a helpful forum on the UE5 page that demonstrated toon shading in Unreal Engine 5 ([UE5] Anime/Toon/Cel Shading Model (WORKS WITH LAUNCHER ENGINE VERSIONS) - Development / Rendering, 2022). This specifically gave me a lot clearer picture on the kind of asset I wanted to create and how I would go about creating it in my project.</p>
+<p>To round things out I then also briefly took a lot at an Unreal Engine created tutorial in their forums (Custom shading models directly in your material graphs | Community tutorial, 2024) so that I could loosely follow along with steps in my own project in order to create the celshading effect.</p>
+<h2 id="analysis">Analysis</h2>
+<p>My main takeaway from my research was that creating a post process material to make a celshading effect was a lot more complex than I had initially thought. I had to do a lot of reading and research in order to properly implement it into my own project and I had to be very careful with the implementation of it as I didn't want to break anything. Since it relied heavily on the viewport of the player it was important that I also made sure it would be memory efficent as to not lower the performance of the overall project when my client was using it.</p>
+<p>For this I decided to implement a technique I had read about where I could create a limited range around the player with the post process material so that it wasn't being constantly applied to the whole level but rather just areas of the level far enough so that the player would never be able to tell that other aspects of the level were not rendered with my post process material.</p>
+<h2 id="client-communication">Client Communication</h2>
+<p>Client communication for this particular project was incredibly limited. As I had a singular conversation with them in person about the sort of thing they were looking for when it came to this asset.</p>
+<p>In hindsight this was probably a bad idea as having a constant source of reference via something like an email would've been incredibly helpful for me in terms of defining what they would've wanted to a more specific level.</p>
+<p><img src="image.png" alt="alt text">
+<em>Figure 1: Client informed that the asset had been completed. (I didn't hear back after this)</em></p>
+<p>Looking back reflectively, there was definitely a lot more I could've done personally establish a deeper line of connection for this specific asset, though it was a lesson I learned and had taken forward onto my next asset.</p>
+<h2 id="technical-problem-solving">Technical Problem-Solving</h2>
+<p>Due to my Week 2 experience with creating post process materials, the concept of creating a cel shader wasn't foreign to me, thus allowing me to more effectively create this asset. I had a few issues when it came to the rendering and genearl application of this asset, mainly revolving around the implementation of it as a package though this was resolved.</p>
+<p><img src="image-17.png" alt="alt text">
+<em>Figure 2: Initial implementation of the cel shader.</em></p>
+<p>For some reason importing the zip file into the plugins folder didn't work initially, with it showing an empty folder in the content browser. After some troubleshooting I found out that I needed to restart my editor in order for the folder to show up and ensure that the plugins folder was placed inside the 'Content' folder.</p>
+<h2 id="workflow--time-management">Workflow &amp; Time Management</h2>
+<p>My time was managed decently well I would say. I took on two projects overall just because I was balancing creating the gamejam with Bradley and Harry in the meantime too and I wanted to place focus on that alongside this. The project was completed by the end of Week 8 and I was able to deliver the asset to the client successfully, despite not hearing anything back from them.</p>
+<p>My workflow mostly consisted of working on the project in one large batch so that I could keep track of what I had to do and what was left to be done without losing my train of thought. I also took the time to document my process and the asset in order to make it easier for me to understand and remember what I had done and how I had done it. This allowed me to write up the cover document a lot easier too to explain everything to the client.</p>
+<h2 id="professional-practice">Professional Practice</h2>
+<p>I mostly learnt that communication and lack thereof can be a real issue when it comes to outsourcing. I should've been more persistent in my attempts to contact the client and ask for feedback and clarification on what they were looking for. I also should've been more persistent in my attempts to contact the client and ask for feedback and clarification on what they were looking for. I mostly had to end up winging the project due to the fact that the client did not communicate with me much nor did I communicate with them much.</p>
+<p>I also learnt that it's important to hit deadlines and make sure that the client is involved in the creative process to an extent so that you can get a more accurate and desired result on the first attempt and minimise the amount of adjustments that need to be made.</p>
+<h2 id="quality-vs-deadline">Quality vs Deadline</h2>
+<p>I had to cutback on my scope significantly due to the reason that I realised I didn't have as much time as I thought I did. Initialyl I wanted to make 2-3 variants of the cel shader and allow the client to choose between them, but I soon realised that I didn't have enough time to do so and that I would have to cutback on my scope. Especially since I had a second asset which would've required more attention as I was taking on a task I was slightly less familiar with.</p>
+<p>Ultimately I decided that just the one cel shader that resembled the PS2 style would be the best option for me to deliver and that I would have to cutback on my scope and focus on delivering a quality asset as opposed to a quantity of assets. I belive this was the right choice to make.</p>
+<hr>
+<h2 id="second-handover">SECOND HANDOVER</h2>
+<h1 id="gun-effects-documentation">Gun Effects Documentation.</h1>
+<h3 id="notable-information">Notable information</h3>
+<p>Asset Type - Material / Niagara System</p>
+<p>Author - Liliana Bellas (2326296@students.ucreative.ac.uk)</p>
+<p>Client - Michael Wintringham (2304751@students.ucreative.ac.uk)</p>
+<p>Delivery Date - 29/11/2025</p>
+<p><em>Version 1.0</em></p>
+<hr>
+<h2 id="asset-overview">Asset Overview</h2>
+<p>The gun effects are created in order to enhance a shooter game with low fidelity, the effects were made with that in mind, utilising simple techniques to create effective and good looking effects.</p>
+<p><img src="Recording 2025-11-29 161421-2-1.gif" alt="alt text"></p>
+<p><img src="Recording 2025-11-29 161719-1.gif" alt="alt text"></p>
+<p><img src="image-10.png" alt="alt text"></p>
+<h2 id="intergration-guide">Intergration Guide</h2>
+<p>To add this to your project, simply download the provided zip file, create a plugins folder in your unreal directory and then drag and drop the zip file in there.</p>
+<p><img src="image-4.png" alt="alt text"></p>
+<p>From there navigate over to your plugins tab and search gun effects and my plugin should show up! If the folder isn't showing up in your content browser you may have to restart your project.</p>
+<p><img src="image-11.png" alt="alt text"></p>
+<p>From there it's as simple as selecting my NS system in a spawn system at location function for whenever an enemy or player takes damage and it should automatically play the effects when an enemy is shot.</p>
+<p><img src="image-12.png" alt="alt text"></p>
+<p>For the bullet tracer, for wherever you're spawning bullets from a gun using a system, its the same as the previous example, just make sure to use my NS_PulseBullet in order to ensure its using the correct bullet.</p>
+<p><img src="image-13.png" alt="alt text"></p>
+<h2 id="customisation">Customisation</h2>
+<p>There's limited customistaion as you specified with the blood that it's blood so obviously it's going to be red! Thus I didn't expect you to want to customise that. Though if you want to change any of the values such as the spawn amount and rate etc, if you open up the NS_Blood and navigate over to stain, you can change any of the values such as lifetime, sprite size too for the decal that spawns on the floor.</p>
+<p><img src="image-14.png" alt="alt text"></p>
+<p>The same settings apply for the directional burst too.</p>
+<p><img src="image-15.png" alt="alt text"></p>
+<p>With the pulse bullet, you can adjust the colour on either the head or tail effect in order to change the colour of the bullet to your liking, I just went with cyan as you used halo as a reference and a lot of their bullets are that colour.</p>
+<p><img src="image-16.png" alt="alt text"></p>
+<hr>
+<h2 id="reflective-documentation">Reflective Documentation</h2>
+<h2 id="baseline-research">Baseline Research</h2>
+<p>Once again, like the last asset I wanted to look into a few avenues for my research in order to better understand what I would need to do to properly implement the blood splattering effects alongside the gun bullet tracers for this client's assets. As I had barely worked with things like bullet tracers and Niagara Systems that required decals and impact decals, I wanted to look into how I could best implement them.</p>
+<p>I did a bit more searching on the unreal engine forums like I did with my last asset and stumbled upon a few posts that were incredibly helpful. I found a post that outlined a method for creating a basic blood niagara system, (Basic Niagara Blood -- UE5/UE4 Tutorial | Community tutorial, 2025). Whilst not as in-depth as I had hoped, it was still a good starting point and provided me with a solid foundation to build upon. It allowed me to generally understand what kind of nodes I would've needed to use in order to create the blood splattering effects and that I could apply these to my Niagara system with adjustments in order to make the blood splatter I wanted.</p>
+<p>I also found this incredibly useful reddit post (SiiGulGames, 2024) which outlined how to properly optimise your Niagara system and that was incredibly helpful for me to understand how to properly optimise my Niagara system in order to ensure it was running at a good frame rate. Since the user who was asking the question about the frames was also using these effects for on death effects like I was planning to, I found this incredibly useful. I had understood that I wanted to ensure my system was running on a GPU based emitter rather than a CPU as the CPU emitter would tank the framerate incredibly and to ensure that my material I was using was masked instead of translucent to avoid drawing over eachother.</p>
+<p>For the bullet effects I couldn't find much in terms of documentation and or forum posts that matched exactly what I was looking for. I found this short forum post (Need advice on how you guys make bullet tracers for an FPS game. I have questions about niagara effects and problems of tracers flickering in high speeds. - Programming &amp; Scripting / Blueprint - Epic Developer Community Forums, s.d.) though it did not quite outline what I was looking for. Thus I turned to youtube and found a really solid tutorial on bullet tracers and effects (Easy Bullet Trails &amp; Bullet Hits with Niagara In Unreal Engine, 2023). This tutorial significantly helped with understanding and setting up bullet trails that I would need to create.</p>
+<p>The biggest upside of this tutorial too was how lightweight these bullet tracers and trails were so they would look incredibly effective whilst also maintaining a good frame rate.</p>
+<h2 id="analysis">Analysis</h2>
+<p>Taking away from my research I had mostly understood the general path to create the assets I needed and how long and difficult they would be based on what I had looked into. With the blood splatter being relatively simple and requiring mostly a more complex material setup than a Niagara system, I had expected it to be a bit more time consuming. However, I had underestimated the complexity of the Niagara system and the amount of time it would take to set up and optimise it.</p>
+<p>With the bullet effects, I had expected these to be a bit lengthier as I had to properly implement and test them in the project to ensure it was all working correctly. They did end up taking a bit longer due to this fact too as I wanted to properly ensure they looked good and ended up using the third person arena shooter variant to see them in action.</p>
+<h2 id="client-communication">Client Communication</h2>
+<p>Client communication for this project was significantly better than the previous handover. Unlike the first asset, I made sure to send follow-up emails to confirm details alongside having various conversations in person. This provided a constant source of reference which was incredibly helpful for defining specific requirements and ensuring we were on the same page. Having a paper trail of our discussions meant I could always refer back to exactly what was agreed upon, preventing any ambiguity.</p>
+<p><img src="image-18.png" alt="alt text">
+<em>Figure 3: An inital email to clarify certain details of the asset as some of it required programming which was not in my specification of my role</em></p>
+<p><img src="image-19.png" alt="alt text">
+<em>Figure 4: Client confirmation that they could handle the programming aspect of the asset</em></p>
+<p><img src="image-20.png" alt="alt text">
+<em>Figure 5: My confirmation that I would handle the asset creation and the client's confirmation that they would handle the programming aspect of the asset, with assistance to implement said programming if need be</em></p>
+<p>These exchanges of emails allowed us to both better understand what we both needed to do to ensure this was a successful project exchange. Clarifying that one of his requested assets was actually purely programming and that I would not need to create an asset for him allowed the client to better understand and scope his project around this fact. This also allowed me to rescope my project as I had one less task asset to complete.</p>
+<p>Ultimately this allowed me to better manage my time and focus on the assets I needed to create, rather than being held back by the programming aspect of the project.</p>
+<h2 id="technical-problem-solving">Technical Problem-Solving</h2>
+<p>My technical problem solving went a lot smoother during this project, largely due to understanding how to package assets based on my experience with the first asset. The lessons learned from the cel shader implementation allowed me to avoid similar issues and streamline the process. I encountered fewer roadblocks with the plugin structure itself, allowing me to focus more on the actual Niagara systems and material logic rather than fighting with the engine's file management.</p>
+<p>That being said.</p>
+<p><img src="image-21.png" alt="alt text">
+<em>Figure 6: The client reaching out that he had issues with implementation.</em></p>
+<p><img src="image-22.png" alt="alt text">
+<em>Figure 7: My response to his query.</em></p>
+<p>Unfortunately due to the lateness of his response I was unable to adequately assist him in time to get his project with the gun effects set up and had wished he had contacted me earlier regarding the issues with the implementation so I could better assist him.</p>
+<h2 id="workflow-and-time-management">Workflow and Time Management</h2>
+<p>The workflow and time management for this asset was a bit worse as I had taken a while to get started due to a lack of motivation. This left me with less time than I ideally would've wanted to complete it, though I managed to finish the necessary tasks. I found myself rushing towards the end, which added unnecessary stress. In the future, I need to be more disciplined about starting earlier, even when motivation is low, to avoid this crunch.</p>
+<h2 id="professional-practice">Professional Practice</h2>
+<p>The professional practice was about the same as the first project, though with better communication practices. Working on this asset reinforced the importance of clear communication and the value of iterative feedback, even when time is tight. It highlighted that while technical skills are crucial, the ability to manage client expectations and maintain a steady workflow is equally important for a successful delivery.</p>
+<h2 id="quality-vs-deadline">Quality vs Deadline</h2>
+<p>The balance between quality and deadline remained consistent with the previous example. Despite the time constraints caused by the slow start, I prioritized the core functionality to ensure the asset was delivered to a good standard by the deadline. Though as mentioned above, due to the clarification that one of the assets was purely programming, it also freed up some time for me to focus on the remaining two assets to make for the client, which allowed them to be of higher quality.</p>
+<h2 id="bibliography">BIBLIOGRAPHY</h2>
+<p>Post Process Materials in Unreal Engine | Unreal Engine 5.7 Documentation | Epic Developer Community (s.d.) At: https://dev.epicgames.com/documentation/en-us/unreal-engine/post-process-materials-in-unreal-engine (Accessed  17/11/2025).</p>
+<p>[UE5] Anime/Toon/Cel Shading Model (WORKS WITH LAUNCHER ENGINE VERSIONS) - Development / Rendering (2022) At: https://forums.unrealengine.com/t/ue5-anime-toon-cel-shading-model-works-with-launcher-engine-versions/544226 (Accessed  17/11/2025).</p>
+<p>Custom shading models directly in your material graphs | Community tutorial (2024) At: https://dev.epicgames.com/community/learning/tutorials/ow0x/unreal-engine-custom-shading-models-directly-in-your-material-graphs (Accessed  17/11/2025).</p>
+<p>Basic Niagara Blood -- UE5/UE4 Tutorial | Community tutorial (2025) At: https://dev.epicgames.com/community/learning/tutorials/zB1W/unreal-engine-basic-niagara-blood-ue5-ue4-tutorial (Accessed  23/11/2025).</p>
+<p>SiiGulGames (2024) How to handle multiple VFX on death fps problems?. [Reddit Post] At: https://www.reddit.com/r/unrealengine/comments/1dvrwn4/how_to_handle_multiple_vfx_on_death_fps_problems/ (Accessed  23/11/2025).</p>
+<p>Need advice on how you guys make bullet tracers for an FPS game. I have questions about niagara effects and problems of tracers flickering in high speeds. - Programming &amp; Scripting / Blueprint - Epic Developer Community Forums (s.d.) At: https://forums.unrealengine.com/t/need-advice-on-how-you-guys-make-bullet-tracers-for-an-fps-game-i-have-questions-about-niagara-effects-and-problems-of-tracers-flickering-in-high-speeds/2234150/2 (Accessed  23/11/2025).</p>
+<p>Easy Bullet Trails &amp; Bullet Hits with Niagara In Unreal Engine (2023) Directed by Aziel Arts. At: https://www.youtube.com/watch?v=kdq82mAoKIc (Accessed  23/11/2025).</p>
+
+</body>
+</html>

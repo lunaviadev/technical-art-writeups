@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Niagara_Report.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="week-5---niagara-vfx-technical-report">Week 5 - Niagara VFX Technical Report</h1>
+<h2 id="1-fire-effect">1. Fire Effect</h2>
+<h3 id="research">Research</h3>
+<p>Before diving into the project I wanted to do a little research on Niagara systems in order to deeper understand what I would be working with for this week worth of content.</p>
+<p>I looked into various forum posts that were created by others in the community and I found a lot of useful information on how to create Niagara systems and how to use them in a blueprint. I looked briefly through the documentation of the Niagara systems provided by unreal (Creating Visual Effects in Niagara for Unreal Engine | Unreal Engine 5.7 Documentation | Epic Developer Community, s.d.). This helped me to generalise how to use the Niagara system and how to create emitters and renderers.</p>
+<p>For the fire effect I had found a really short and simple tutorial to create the fire. (Super Easy Fire Effect in Unreal Engine 5.4, 2024). It used SubUVs which weren't necessary for this portion of the week's content so I just swapped that out for using basic sprite rendering.</p>
+<hr>
+<p>For the first effect, I created a standard fire system <code>NS_FireNormal</code> designed to be a versatile environmental asset. The core of this effect relies on a sprite renderer to create the illusion of rising flames through upward velocity and turbulence.</p>
+<p>I started by setting up a <code>SpawnRate</code> module driven by a User Parameter <code>User.SpawnRate</code>. This allows me to control the density of the fire directly from the level instance without opening the Niagara editor. The particles are spawned from a Sphere location, giving the fire a natural, rounded base.</p>
+<p>To make the movement feel realistic, I used <code>Add Velocity</code> with a random range, controlled by <code>User.MinVelocity</code> and <code>User.MaxVelocity</code>. I also added a <code>Drag</code> module to slow the particles down as they rise, simulating air resistance. The color transitions from a hot core to cool smoke using a <code>LinearColor</code> curve, which I also exposed as a user parameter <code>User.Curve for Colors</code>.</p>
+<p><img src="image.png" alt="Fire Setup">
+<em>Figure 1: The Niagara System overview for the Fire effect, showing the emitter stack.</em></p>
+<p><img src="firenormalgif.gif" alt="Fire Effect In-Game">
+<em>Figure 2: The final Fire effect in the level.</em></p>
+<p><img src="image-15.png" alt="alt text">
+<em>Figure 2.1: Additional user parameters I added for the Fire effect.</em></p>
+<h2 id="2-fireball-projectile">2. Fireball Projectile</h2>
+<p>When it came down to doing some research for the fireball projectile, I found this useful post on artstation from a 3D artist who had created a fireball projectile using Niagara systems. (Stylized Fireball VFX UE5, s.d.). This artstation post clearly outlined the blueprints for the material alongside their setup for the Niagara system, which was a great starting point for my own implementation. I worked with this as a base for creating my own fireball projectile.</p>
+<p>I ultimately looked at this tutorial I found on youtube (Create a Fireball Projectile VFX in Unreal Engine Using Niagara System Tutorial Custom Texture, 2023) which had pretty much everything I needed in order to create the fireball projectile.</p>
+<hr>
+<p>I implemented the Fireball as a projectile-based effect, <code>NS_Fireball</code>. This system is more complex, combining a glowing core, a smoke trail, and sparks. It's designed to work with the <code>BP_Shooter</code> blueprint I set up.</p>
+<p>The most important part of this effect is the trail. I used a <code>NiagaraRibbonRendererProperties</code> for the <code>Trail</code> emitter. This creates a smooth, continuous geometry behind the projectile, which looks much better than just spawning a line of sprites. The ribbon uses <code>M_Trail</code>, a material I set up with <code>MaterialExpressionPanner</code> to scroll two textures (<code>TestTexture90</code> and <code>T_Smoke_Tiled_D</code>) at different speeds. This makes the trail look like it's flowing and evolving, not just a static streak.</p>
+<p><img src="image-1.png" alt="M_Trail setup">
+<img src="image-2.png" alt="alt text">
+<em>Figure 3: The M_Trail material setup with two textures scrolling at different speeds.</em></p>
+<p>I then duplicated the emitter for FireRibbon to create a second FireRibbon which was used to add a bit more depth and variety to the Ribbon trail that would follow behind the main particle. I went in and adjusted thingsl ike the <code>Spawn Rate</code> and various parameters to make it look visually different from the main trail.</p>
+<p><img src="nosecondribbon.gif" alt="alt text">
+<em>Figure 4: Without Second Ribbon</em>
+<img src="withsecondribbon.gif" alt="alt text">
+<em>Figure 4.1: With Second Ribbon</em></p>
+<p>I then finished it off by making emitters for the smoke and the actual fireball. This was achieved by using my M_Smoke material and various parameters to control the smoke's behavior. I also added a <code>Drag</code> module to slow the particles down as they trail behind the main particle.</p>
+<p><img src="image-3.png" alt="alt text"></p>
+<p><em>Figure 5: The smoke and fireball emitters.</em></p>
+<p>I then very quickly set up a very basic <code>BP_Shooter</code> blueprint to spawn the projectile just so I could demonstrate how it looked being fired from a spawner.</p>
+<p><img src="fireballshooting.gif" alt="alt text"></p>
+<p><em>Figure 6: The Fireball being fired from a spawner.</em></p>
+<p><img src="image-14.png" alt="alt text">
+<em>Additional user parameters I added</em></p>
+<h2 id="3-lightning-strike">3. Lightning Strike</h2>
+<p>When looking for resources to help me with the lightning strike asset, it was a bit more scarce in what I could find documented online to help me with what I needed specifically. I found a short thread on reddit (Emotional-Bid-4173, 2022) which very loosely outlined a basic striking lightning asset setup, though wasn't very indepth nor did it contain much information that I could use to create a basis for my own asset.</p>
+<p>I turned to the unreal engine forums and found a slightly better step by step in order to create a basis for my own asset (Lightning VFX: Step-by-Step Guide | ICVR Lightfall | Community tutorial, 2024). This forum post had a bit more depth to it and allowed me to understand the general outline of what emitters and states I would need to be using, with the application of short lifetime mixed with the use of <code>Spawn Burst Instantaneous</code> in order to create the main bolt flashing effect.</p>
+<p>Settling on a middle ground I then utilised parts of a tutorial I found online to fill my gaps in knowledge, more specifically when it came to creating additional effects like sparks flying off the ground upon collision. (Simple Lightning Strike Part 1 - Custom Lightning Strike with Sparks Unreal Engine Niagara, 2023). This tutorial was effective at highlighting that in a simple manner and ultimately was a useful resource for me to create the sparks and the emitter which I then tweaked to be more in line with the thunderbolt I made.</p>
+<hr>
+<p>For the Lightning Strike <code>NS_LightningStrike</code>, I wanted a short-lived, high-impact effect. I used a Ribbon Renderer again and utilised a <code>Spawn Burst Instantaneous</code> in order to create the main bolt flashing effect. Combined with a short lifetime, this creates the illusion of a flash of lightning.</p>
+<p><img src="image-4.png" alt="alt text">
+<em>Figure 7: The Lightning Strike emitter setup.</em></p>
+<p>In order to give the lightning some adjustable parameters too, I created a <code>LightningStrike</code> user parameter which allows the user to adjust the colour of said lightning strike. I also created a few more parameters such as <code>Size Minimum</code> and <code>Size Maximum</code> which are both Vector 2Ds in order to control the size of the lightning strike. To top it off I then added a <code>NoiseStrength</code> user parameter so you can adjust the noise strength of the lightning strike.</p>
+<p><img src="image-5.png" alt="Lightning Strike User Parameters">
+<em>Figure 8: The Lightning Strike user parameters.</em></p>
+<p>To add a bit more flair to the effect too, I created a new emitter which utilised a <code>M_Glow</code> which was used to create some glowing sparks that would appear when the ground was hit by the lightning.</p>
+<p><img src="image-6.png" alt="alt text">
+<em>Figure 9: Glow Material Setup</em></p>
+<p>I then adjusted a few parameters for the sparks and specifically added some <code>Gravity Force</code> and <code>Drag</code> to make the sparks look more natural and less like they were just floating in the air. This gave them a realistic look as if they would spew out from the broken ground and then bounce back to the floor.</p>
+<p><img src="image-7.png" alt="alt text">
+<em>Figure 10: Spark Emitter Setup</em></p>
+<p><img src="lightningstrike.gif" alt="alt text">
+<em>Figure 11: The final Lightning Strike effect in the level.</em></p>
+<h2 id="4-slash-attack-vfx">4. Slash Attack VFX</h2>
+<p>The slash effect was actually suprisingly easy to create as it was utilising sockets and meshes which I had already covered in depth for the prior week of work. The only research I wanted to look into was how to actually create the sword trail effect in the Niagara system as utilising animation notifiers to link it up to my animation montage was already something I had understood. I found this tutorial on youtube (UE5: How To Make ‘Sword-Trails’ (In 3 Minutes), 2024) which perfectly outlined the exact thing I needed which was creating the sword trail.</p>
+<hr>
+<p>For the Slash Attack, I utilised the <code>Stable_Sword_Outward_Slash_Montage</code> I had made in the previous week to drive the visual effects. The key to this implementation was using Animation Notifiers to trigger the effect at the precise moment of the swing.</p>
+<p>I used the <code>AnimNotifyState_TimedNiagaraEffect</code> which is a built-in notify state that allows for the spawning of a Niagara System for a duration. I set the Template to <code>NS_SwordTrail</code> and attached it to the <code>WeaponTip</code> socket. This ensures the trail follows the tip of the blade perfectly during the animation.</p>
+<p><img src="image-16.png" alt="alt text">
+<em>Figure 12: The AnimNotifyState_TimedNiagaraEffect setup in the animation montage.</em></p>
+<p>The <code>NS_SwordTrail</code> system itself relies on a <code>NiagaraRibbonRendererProperties</code> within the <code>Minimal</code> emitter. This renderer generates geometry between the spawned particles, creating a smooth, continuous trail that visualizes the weapon's path. The system is spawned and updated based on the duration defined in the animation notify, ensuring it only appears during the active slash frames.</p>
+<p><img src="image-17.png" alt="alt text">
+<em>Figure 13: The NS_SwordTrail system showing the ribbon renderer setup.</em></p>
+<p>Additionally I had to sample both sockets on the skeletal mesh of my weapon in order to get the trail to follow the tip of the blade perfectly. I then created <code>trailDirection</code> and <code>trailWidth</code> so that I would be able to directly link these vectors to the initalise particle lerp.</p>
+<p><img src="slashes.gif" alt="alt text">
+<em>Figure 14: The final Slash effect in the editor montage.</em></p>
+<h2 id="5-decal-impact">5. Decal Impact</h2>
+<p>For a decal impact I had a brief look into unreal engine's documentation of a decal renderer in order to better understand how I would go about creating and implementing this decal into my project. (Decals in Unreal Engine | Unreal Engine 5.7 Documentation | Epic Developer Community, s.d.). This pretty clearly outlined what the decal was and how I could integrate it with Niagara's systems.</p>
+<p>I then also read through Niagara renderers in order to see how I could directly use this to add a decal renderer into my emitter for my blood effect. (Render Module Reference for Niagara Effects in Unreal Engine | Unreal Engine 5.7 Documentation | Epic Developer Community, s.d.). This proved to be useful as I was able to understand implementation of the decal renderer property and use that in order to have decals spawn on the ground after my emitter was done emitting the blood splatter particles.</p>
+<hr>
+<p>For the impact effect, I used <code>NS_Blood</code> to create a splatter on the ground. This is triggered when the attack first hits an enemy that can take damage, which then transitions into a decal when it collides with a surface.</p>
+<p><img src="image-8.png" alt="alt text">
+<em>Figure 15: The spawning system blueprints after damage is applied to the enemy.</em></p>
+<p>The core of this effect is the <code>Stain</code> emitter. It spawns a single particle that acts as a decal. I used <code>M_Blood</code>, which creates a masked stain using a texture sample. In the Blueprint logic for the notify, I perform a Line Trace to find the ground position and the Surface Normal. I pass these values to the Niagara system so the decal aligns perfectly with the floor, regardless of the slope.</p>
+<p><img src="image-9.png" alt="alt text">
+<em>Figure 16: The emitter setup for NS_Blood.</em></p>
+<p>I utilised a variety of user parameters too so that certain aspects such as the amount of blood splatter, how long the blood would linger for and how big the blood would be could all be adjusted accordingly if it needed to be increased or decreased for specific reasons.</p>
+<p><img src="image-10.png" alt="alt text">
+<em>Figure 17: The user parameters for NS_Blood.</em></p>
+<p><img src="bloodsplatter.gif" alt="alt text">
+<em>Figure 18: The final Blood splatter effect.</em></p>
+<h2 id="6-subuv-flipbook-implementation">6. SubUV Flipbook Implementation</h2>
+<p>My research for the SubUV was already mostly covered in my first fire task as the resources I looked into actually contained coverage of SubUV.</p>
+<hr>
+<p>Finally, I created a high-fidelity variant of the fire effect, <code>NS_FireFlipbook</code>. Instead of a single static texture, this uses a Flipbook (SubUV) texture sheet. It is in essence just my fire effect except using a different material which supported SubUV elements. For this reason I wont be breaking down most of the setup as it is identical to the standard fire effect.</p>
+<p>I enabled <code>SubUV</code> on the Sprite Renderer and used the <code>SubUVAnimation</code> module. This module iterates through the frames of the texture sheet over the particle's lifetime. This bakes complex fluid simulation behavior into the texture, making the fire look much more realistic and volatile than the standard sprite version.</p>
+<p><img src="image-11.png" alt="alt text">
+<em>Figure 19: The SubUV settings in the Sprite Renderer.</em></p>
+<p><img src="image-12.png" alt="alt text">
+<em>Figure 20: The SubUV settings in the NS_FireFlipbook sprite renderer.</em></p>
+<p>I then set up a similar amount of user parameters for this one, however I also created a <code>Scale</code> user parameter to control the size of the fire. This would allow the fire to properly scale to become larger and ultimately not break when you would size it up.</p>
+<p><img src="image-13.png" alt="alt text">
+<em>Figure 21: The user parameters for NS_FireFlipbook.</em></p>
+<p><img src="comparison.gif" alt="alt text">
+<em>Figure 22: Side-by-side comparison of the Standard Fire (left) and Flipbook Fire (right).</em></p>
+<h2 id="bibliography">BIBLIOGRAPHY</h2>
+<p>Super Easy Fire Effect in Unreal Engine 5.4 (2024) Directed by hawaiifilmschool. At: https://www.youtube.com/watch?v=6h7kzUdbjHk (Accessed  29/11/2025).</p>
+<p>Creating Visual Effects in Niagara for Unreal Engine | Unreal Engine 5.7 Documentation | Epic Developer Community (s.d.) At: https://dev.epicgames.com/documentation/en-us/unreal-engine/creating-visual-effects-in-niagara-for-unreal-engine (Accessed  29/11/2025).</p>
+<p>Stylized Fireball VFX UE5 (s.d.) At: https://emagal9.artstation.com/projects/g0L2nP (Accessed  30/11/2025).</p>
+<p>Create a Fireball Projectile VFX in Unreal Engine Using Niagara System Tutorial Custom Texture (2023) Directed by Breez-E Game Studios. At: https://www.youtube.com/watch?v=eOu-PGwRjDs (Accessed  30/11/2025).</p>
+<p>Emotional-Bid-4173 (2022) How to make realistic forking lightning/thunder?. [Reddit Post] At: https://www.reddit.com/r/unrealengine/comments/zp9lzr/how_to_make_realistic_forking_lightningthunder/ (Accessed  30/11/2025).</p>
+<p>Simple Lightning Strike Part 1 - Custom Lightning Strike with Sparks Unreal Engine Niagara (2023) Directed by Breez-E Game Studios. At: https://www.youtube.com/watch?v=YQlskAHqcas (Accessed  30/11/2025).</p>
+<p>UE5: How To Make ‘Sword-Trails’ (In 3 Minutes) (2024) Directed by Royal Skies. At: https://www.youtube.com/watch?v=LibOjabsOw8 (Accessed  30/11/2025).</p>
+<p>Decals in Unreal Engine | Unreal Engine 5.7 Documentation | Epic Developer Community (s.d.) At: https://dev.epicgames.com/documentation/en-us/unreal-engine/decals-in-unreal-engine (Accessed  01/12/2025).</p>
+<p>Render Module Reference for Niagara Effects in Unreal Engine | Unreal Engine 5.7 Documentation | Epic Developer Community (s.d.) At: https://dev.epicgames.com/documentation/en-us/unreal-engine/render-module-reference-for-niagara-effects-in-unreal-engine (Accessed  01/12/2025).</p>
+
+</body>
+</html>

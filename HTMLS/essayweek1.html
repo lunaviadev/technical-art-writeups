@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>essayweek1.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="exploring-the-evolution-of-technical-art-optimisation-for-indie-games">[Exploring the evolution of technical art optimisation for indie games.]</h1>
+<p><strong>Liliana Bellas</strong> | <strong>2326296</strong> | <strong>2/10/25</strong></p>
+<hr>
+<h2 id="introduction">Introduction</h2>
+<p>For much of the industry's history, indie games have often been percieved as trailing behind their triple-A counterparts, striving to meet benchmarks established years earlier by studios with greater budgets and resources. However in recent years this perception has begun to shift. Indie games have risen to prominence which was largely fuelled by growing consumer interest in their lower cost, multi-platform accessibility and their reputation for innovation and creative design. In this essay I will explore how indie games have evolved as a distant force within the industry to pushing technical and artistic boundaries while continuously advancing optimisation practices in technical art.</p>
+<h2 id="backgroundhistorical-context">Background/Historical Context</h2>
+<p>To provide historical context, the early era of indie game development was shaped by limited access to professional-grade engines. Tools such as Unity (2005), Unreal Engine, and CryEngine were either unavailable, prohibitively expensive, or restricted in their licensing models, which made them less accessible to smaller studios and independent creators compared to today. Prior to Unreal Engine's shift toward a more open licensing model in 2015 and CryEngine's similar changes around 2011, many developers either relied on freeware engines with significant limitations or bypassed engines altogether, opting instead to code directly in C++. This reflected a broader industry transition in the early 2000s from C to C++ as the dominant language for game programming. Research from the period also shows how optimisation was a core technical concern. For example, (Roimela et al, 2006) demonstrated early approaches to texture compression that incorporated anti-aliasing and luminance adjustments to improve framerates and shader efficiency. Similarly, (Inada and McCool, 2006) examined block-based, lossless texture compression methods, which were increasingly adopted by smaller developers seeking to improve rendering performance without sacrificing visual fidelity.</p>
+<h2 id="critical-analysis">Critical Analysis</h2>
+<p>For many indie developers, the choice of rendering pipeline is a foundational optimisation decision. While Deferred Rendering allows for complex lighting with numerous dynamic lights, it comes with a significant memory bandwidth cost which is typically unoptimal for many indie titles due to their (on average) lower-end hardware requirements and general stylistic choices that make them able to run on many machines. For many indie titles, Forward Rendering remains the superior choice, offering lower overhead and sharper visuals, particularly for stylized games where realistic lighting is secondary to art direction. However, Forward rendering is not entirely positive due to its many overlapping linear lights that can often slow down performance in games. This is where Forward+ Rendering becomes (Technologies, s.d.) of use for many indie developers using engines like Unity's Universal Render Pipeline (URP). By culling lights in screen space, it allows for more dynamic lighting than traditional Forward rendering without the heavy G-buffer cost of Deferred. This makes it ideal for developers who plan on putting their games on multiple systems with varying hardware capabilities.</p>
+<p>When talking in regards to the effects that indie developers use to create games, tools such as Unreal Engine 5's Material Editor system and Unity's Universal Render Pipeline options have become core essentials for indie developers to optimise and push their games to a new visual height. These tools often allow many artists in the indie space to create truly stunning visuals without having significant cost financially for third party software, or hardware costs when running their games. Though despite the many positives of these tools being widely accessible to indie developers, it also works as a double-edged sword. In which you often see many developers who lack the technical understanding of these tools creating shaders and visuals with them that are entirely unoptimised and frankly run horribly. This issue is only made worse by the fact you often see many developers who lack enough research going into these engines assuming everything will run fine. This article from IGN (Barrier, 2022) clearly demonstrates my point of the fact that certain developers are becoming &quot;Lazy&quot; due to the ease of access and tools that are created with these enhancements in engines. Leading to many buggy games with poorly optimised graphics.</p>
+<p>Though despite all these drawbacks of developers becoming too comfortable with premade tools. There are also many instances in which we see these tools being used for optimistaion and to play into stylistic choices. The 2022 action-adventure game <em>Tunic</em> is a prime example of utilising modern tools with a simplier aesthetic to create something that can run on all platforms. Diving into this youtube video posted by the developers of Tunic (The Design Evolution of Tunic | Developer Breakdown, 2022), you can see how the game evolved over time to adapt to it's design choices and how things like a fixed camera angle and limited art style also played into optimisation methods so that things could be hidden from the player in order to allow the game to run better. This low poly art style you see in <em>Tunic</em> is also incredibly common amongst many other indie titles due to its ease to optimise and run well whilst also being able to be ported to many platforms without having to worry too much about changes in optimisation and graphics. These tools and evolutions of the indie spave have allowed for many indie developers to fight on part with bigger triple a companies, where historically they were always falling a bit behind when it came to the tools and technologies they had access to. This has allowed for many indie developers to create games that are not only visually stunning but also able to run on a wide range of hardware without any issues.</p>
+<h2 id="future-implicationsconclusion">Future Implications/Conclusion</h2>
+<p>It's pretty clear that moving forward indie games will continue to close the gap between Triple A and secure their spot in the gaming landscape. THis article (Wu, s.d.) goes into great detail on the big boom of the indie scene following games like <em>Hollow Knight</em> and <em>Undertale</em> making their way into mainstream gamers catalogues. This has allowed for many other indie developers to become inspired that their form of game creation can be as successful as companies with high budgets and many employees as many players often state that they actually prefer indie games to those created by bigger studios. This bodes well for the direction of indie studios and the future of the industry as a whole as we see more adaptions to these tools and more technologies being developed that places power into the hands of smaller developers. With engines like Godot (Engine, s.d.) also proving that community led engines can be as successful as those created by larger studios, it's clear that the future of indie development is bright and full of potential.</p>
+<h3 id="bibliogrpahy">Bibliogrpahy</h3>
+<p>Roimela, K., Aarnio, T. and Itäranta, J. (2006) 'High dynamic range texture compression' In: ACM SIGGRAPH 2006 Papers. New York, NY, USA: Association for Computing Machinery. pp.707-712. At: https://doi.org/10.1145/1179352.1141945 (Accessed  02/10/2025).</p>
+<p>Inada, T. and McCool, M. D. (2006) 'Compressed lossless texture representation and caching' In: Proceedings of the 21st ACM SIGGRAPH/EUROGRAPHICS symposium on Graphics hardware. New York, NY, USA: Association for Computing Machinery. pp.111-120. At: https://doi.org/10.1145/1283900.1283918 (Accessed  02/10/2025).</p>
+<p>Technologies, U. (s.d.) Unity - Manual: Forward and Forward+ rendering paths in URP. At: https://docs.unity3d.com/6000.2/Documentation/Manual/urp/rendering/forward-rendering-paths.html (Accessed  02/10/2025).</p>
+<p>Barrier, R. (2022) What Unreal Engine 5 Means for the Games Industry. At: https://www.ign.com/articles/what-unreal-engine-5-means-for-the-games-industry (Accessed  02/10/2025).</p>
+<p>The Design Evolution of Tunic | Developer Breakdown (2022) Directed by noclip_2. At: https://www.youtube.com/watch?v=A5A7uoJAOvY (Accessed  02/10/2025).</p>
+<p>Wu, J. (s.d.) The Rise of Indie Games: How Passion and Creativity are Revolutionizing the Industry. At: https://thesciencesurvey.com/arts-entertainment/2025/03/09/the-rise-of-indie-games-how-passion-and-creativity-are-revolutionizing-the-industry/ (Accessed  02/10/2025).</p>
+<p>Engine, G. (s.d.) Godot Engine - Free and open source 2D and 3D game engine. At: https://godotengine.org/ (Accessed  02/10/2025).</p>
+
+</body>
+</html>

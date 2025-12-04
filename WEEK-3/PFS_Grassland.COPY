@@ -1,5 +1,0 @@
-Begin Object Class=/Script/Foliage.ProceduralFoliageSpawner Name="PFS_Grassland" ExportPath="/Script/Foliage.ProceduralFoliageSpawner'/Game/Materials/PFS_Grassland.PFS_Grassland'"
-   FoliageTypes(0)=(FoliageTypeObject="/Script/Foliage.FoliageType_InstancedStaticMesh'/Game/Materials/SMF_Grass.SMF_Grass'",bIsAsset=True)
-   FoliageTypes(1)=(FoliageTypeObject="/Script/Foliage.FoliageType_InstancedStaticMesh'/Game/Materials/SMF_Flowers.SMF_Flowers'",bIsAsset=True)
-   FoliageTypes(2)=(FoliageTypeObject="/Script/Foliage.FoliageType_InstancedStaticMesh'/Game/Materials/SMF_Tree.SMF_Tree'")
-End Object

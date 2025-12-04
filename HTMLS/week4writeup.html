@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>AnimationSystemsTask.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="animation-systems-task">Animation Systems Task</h1>
+<h2 id="1-animation-blueprint-with-locomotion-system">1. Animation Blueprint with Locomotion System</h2>
+<h3 id="research">Research</h3>
+<p>The research for this project was scarce due to the fact that a lot of the stuff I needed to learn was covered in class however I still did some research on my own due to the fact that the comabt system I was creating was a lot more akin to the darksouls series and thus adjustments needed to be made.</p>
+<p>For the first task I looked into Unreal's documentation of locomotion systems in engine. (Locomotion in Unreal Engine | Unreal Engine 5.7 Documentation | Epic Developer Community, s.d.). This vae me a pretty clear idea of how to implement the locomotion system in my character.</p>
+<p>Furthermore, given the dark souls inspiration I was going for, I did a little research into the Dark Souls movement system. (How do you implement a DodgeRoll like Dark souls? - Programming &amp; Scripting / Blueprint, 2017). I found this incredibly useful forum post discussing the movement system of dark souls and how it works and specific implementations into unreal.</p>
+<p>I also briefly read through the dark souls wiki in order to better understand the nuances of its combat system. (COMBAT, 2023). For obvious reasons I would have to cut a lot of it but it was interesting to see how it specifically worked and what parts I could adapt into my own system.</p>
+<hr>
+<p>For the first part of this task, I set up the Animation Blueprint <code>ABP_Alien</code> to handle the character's basic movement. The core of this is the Event Graph and the Anim Graph working together.</p>
+<p>In the Event Graph, I'm using <code>TryGetPawnOwner</code> to get the character reference and then casting it to <code>BP_ThirdPersonCharacter</code> to access its variables. I'm updating <code>Speed</code> by getting the velocity length, and <code>Direction</code> using <code>CalculateDirection</code>. I also check if the character is in the air using <code>IsFalling</code> from the movement component. These variables drive the state machine logic.</p>
+<p><img src="image.png" alt="Event Graph Logic">
+<em>Figure 1: The Event Graph setup showing the calculation of Speed and Direction variables.</em></p>
+<p>The Locomotion state machine has the following states:</p>
+<ul>
+<li><strong>Idle To Run</strong>: This is the main ground state. I used a Blend Space here called <code>ABS_Omnidirection</code>. It's a 2D blend space that takes <code>Speed</code> and <code>Direction</code> as inputs. This allows the character to strafe and move diagonally without sliding.</li>
+<li><strong>JumpStart</strong>: This plays when the character first leaves the ground.</li>
+<li><strong>JumpLoop</strong>: This is the falling loop that plays while the character is in the air.</li>
+<li><strong>JumpLand</strong>: This plays when the character hits the ground before transitioning back to Idle/Run.</li>
+</ul>
+<p><img src="{C4119ACE-09BB-4974-9C1D-D47A40E29467}-1.png" alt="Locomotion State Machine">
+<em>Figure 2: The Locomotion State Machine showing transitions between Idle, JumpStart, JumpLoop, and JumpLand.</em></p>
+<p><img src="2025-12-01 12-16-39.gif" alt="alt text">
+<em>Figure 2.5: The Locomotion State Machine in action.</em></p>
+<p><strong>Guiding Questions:</strong></p>
+<ul>
+<li><strong>How do you prevent animation popping during state transitions?</strong>
+I used blend settings in the transition rules. For example, when going from JumpLoop to JumpLand, I added a small crossfade duration (around 0.2s) so the legs don't just snap to the ground pose. Also, using a Sync Group for the locomotion states helps keep the foot cycles aligned when switching between walking and running.</li>
+<li><strong>How does the combat state interact with locomotion states?</strong>
+The combat animations aren't actually inside the locomotion state machine. They are handled by a Montage Slot (UpperBody or DefaultSlot) that sits after the state machine in the Anim Graph. This means the locomotion continues running in the background, but the combat montage overrides specific bones when it plays.</li>
+</ul>
+<h2 id="2-combat-combo-system-using-animation-montages">2. Combat Combo System Using Animation Montages</h2>
+<p>For the combo system I wanted to look into animation notifiers primarily as they were the key to making things work correctly. As per usual I read up on the documentation for Animation notifiers (Animation Notifies in Unreal Engine | Unreal Engine 5.7 Documentation | Epic Developer Community, s.d.) so that I could gain a deeper understanding on the inner workings of the animation notifiers. From reading up on this I effectively learned how to implement animation notifiers into an animation montage and how to use them to trigger events in blueprints.</p>
+<p>I also looked at the animation montage documentation (Animation Montage in Unreal Engine | Unreal Engine 5.7 Documentation | Epic Developer Community, s.d.) in order to properly relate it back to my animation notifier research.</p>
+<p>As a baseline to start off my project I then watched through this useful tutorial (How to Create a Souls-Like Game in Unreal Engine 5 - Full Course, 2024) which allowed me to implement a combo montage, with included blueprints to allow it all to work properly.</p>
+<hr>
+<p>I implemented the combat system primarily within a dedicated Blueprint Component called <code>BPC_Combat</code>. This component is attached to the main character, <code>BP_ThirdPersonCharacter</code>. This modular approach keeps the combat logic separate from the movement logic. I also created a montage called <code>Stable_Sword_Outward_Slash_Montage</code>.</p>
+<p>The montage is set up with multiple sections. I have a &quot;Default&quot; section for the first swing and then a second section for the follow-up attack. I used the <code>Stable_Sword_Outward_Slash</code> and <code>Stable_Sword_Inward_Slash</code> animations.</p>
+<p><img src="2025-12-01 12-07-05.gif" alt="Animation Montage"></p>
+<p><em>Figure 3: The Animation Montage timeline showing the 'Default' and 'Combo' sections.</em></p>
+<p>To make the combo work, I used Animation Notifies:</p>
+<ul>
+<li><strong>AnimNotify_ComboWindow</strong>: I placed this notify near the end of the attack animation, during the recovery phase. This tells the blueprint that it's okay to accept input for the next attack.</li>
+<li><strong>BP_Notify_Damage_C</strong>: This is a custom notify I added at the point of impact (when the sword swings fully). This triggers the actual damage logic in the character blueprint.</li>
+</ul>
+<p>In the <code>BPC_Combat</code> blueprint component, I handle the inputs <code>IA_Attack</code>. When the player clicks, it checks if they are currently in a &quot;Combo Window&quot;. If they are, it increments a <code>ComboCounter</code> integer and calls the logic to play the next part of the animation. If they miss the window, the combo resets to zero. This system is heavily inspired by the <em>Dark Souls</em> series, rewarding deliberate timing over button mashing.</p>
+<p>I also implemented a Lock-On system (<code>IA_Lock</code>) within <code>BPC_Combat</code> that uses a Sphere Trace to find targets, allowing the player to focus on specific enemies.</p>
+<p><img src="{53C2E98C-C5FC-4D6D-A3C1-5362A5514BF0}.png" alt="alt text">
+<img src="{1E79081F-BF90-43CB-9BBD-94B405E88820}.png" alt="alt text">
+<em>Figure 4: The Blueprint logic handling the Combo Counter and Montage Jump to Section.</em></p>
+<p><img src="{ABA41ED4-B871-43AC-9EF1-58487094653C}.png" alt="alt text">
+<em>Figure 5: Sword Traces blueprint logic.</em></p>
+<p><img src="{F2C43774-8E81-45BC-B251-A75CA1BD9729}.png" alt="alt text">
+<img src="{CCA3553A-C32C-464F-B7E9-111EFAC7C4F8}.png" alt="alt text">
+<img src="{A75C6F4E-6F0F-4C2A-BE37-19FDF00477F0}.png" alt="alt text">
+<em>Figure 6: The lock on system blueprint logic.</em></p>
+<p><img src="{433B34D3-D59F-4098-BB2A-A0E178933864}.png" alt="alt text">
+<em>Figure 7: Setting new lock target logic.</em></p>
+<p><img src="2025-12-01 12-19-08.gif" alt="alt text">
+<em>Figure 8: The full combat system in action.</em></p>
+<p><strong>Guiding Questions:</strong></p>
+<ul>
+<li>
+<p><strong>How do you make the combo feel responsive while maintaining animation quality?</strong>
+The key is the &quot;Input Buffer&quot;. I set it up so that if you press the attack button slightly <em>before</em> the combo window opens, the game remembers that input and executes it as soon as the window opens. This makes it feel much smoother than requiring frame-perfect timing.</p>
+</li>
+<li>
+<p><strong>How do you prevent button mashing while rewarding timing?</strong>
+I used a boolean check. If the player spams the button outside the combo window, the input is ignored or can even trigger a &quot;recovery&quot; state where they can't attack for a moment. They only get the combo continuation if they press the button during the specific window I defined in the montage.</p>
+</li>
+<li>
+<p><strong>How do you communicate combo windows to the player visually?</strong>
+While I didn't add a UI element for this yet, the animation itself acts as a cue. The &quot;recovery&quot; frames where the character pulls the sword back are usually when the window opens.</p>
+</li>
+</ul>
+<h2 id="3-animation-layering--slot-system">3. Animation Layering &amp; Slot System</h2>
+<p>The animation blending was a bit more confusing for me as I didn't quite understand the whole bone blending to begin with. I read through the provided documentation (Using Layered Animations in Unreal Engine | Unreal Engine 5.7 Documentation | Epic Developer Community, s.d.) though this didn't really help me much with understanding how to actually implement it into my project.</p>
+<p>I then watched this youtube video (How to Blend Animations in Unreal Engine 5 - YouTube, s.d.) to help me understand how to implement the animation layering system. This was a lot more beneficial to see it visualised and eventually allowed me to actually implement it into my project.</p>
+<hr>
+<p>Though not featured in my combat showcase, I implemented the animation layering system to allow the character to attack while moving. I eventually cut the ability to do this though as in an effort to make the combat more similar to the Dark souls series as they dont allow movement while attacking for sword based weapons.</p>
+<p>In the Anim Graph, I used the <code>Layered Blend Per Bone</code> node.</p>
+<ul>
+<li><strong>Base Pose</strong>: This is connected to the Locomotion State Machine (legs and hips).</li>
+<li><strong>Blend Pose 0</strong>: This is connected to the &quot;UpperBody&quot; Slot.</li>
+</ul>
+<p><img src="layeredblend.png" alt="Layered Blend Per Bone Node">
+<em>Figure 5: The Anim Graph showing the Layered Blend Per Bone node merging the Locomotion and UpperBody slot.</em></p>
+<p>I created a specific Slot in the Animation Blueprint called <code>UpperBody</code>. In the montage <code>Stable_Sword_Outward_Slash_Montage</code>, I set the slot to <code>UpperBody</code> instead of <code>DefaultSlot</code>.</p>
+<p>For the <code>Layered Blend Per Bone</code> node, I set the <strong>Bone Name</strong> to <code>spine_01</code>. This means everything above the first spine bone (arms, head, chest) will play the montage animation, while everything below (pelvis, legs) will continue playing the locomotion animation.</p>
+<p><strong>Guiding Questions:</strong></p>
+<ul>
+<li>
+<p><strong>What bone split creates the most natural upper/lower body separation?</strong>
+I found that <code>spine_01</code> works best. If I used <code>pelvis</code>, the legs would look weirdly detached. If I used <code>spine_03</code> (upper chest), the swing would look stiff because the torso wouldn't rotate with the sword. <code>spine_01</code> allows the character to twist their torso for the swing while their legs keep running forward.</p>
+</li>
+<li>
+<p><strong>How do you handle the transition between full-body and layered animations?</strong>
+I use the &quot;Blend Weight&quot; on the Layered Blend Per Bone node. When a montage starts, I can smoothly blend the weight from 0 to 1. Also, for really heavy attacks that need full body movement (like a heavy slam), I just use the <code>DefaultSlot</code> which overrides the entire body, bypassing the layer blend.</p>
+</li>
+<li>
+<p><strong>What blend weights feel most natural for your character?</strong>
+I usually leave it at 1.0 for attacks so the attack looks powerful. However, for things like &quot;hit reactions&quot; while running, I might blend it at 0.8 so some of the running motion still affects the upper body, making it look less robotic.</p>
+</li>
+</ul>
+<p>Locomotion in Unreal Engine | Unreal Engine 5.7 Documentation | Epic Developer Community (s.d.) At: https://dev.epicgames.com/documentation/en-us/unreal-engine/locomotion-in-unreal-engine (Accessed  10/11/2025).</p>
+<p>How do you implement a DodgeRoll like Dark souls? - Programming &amp; Scripting / Blueprint (2017) At: https://forums.unrealengine.com/t/how-do-you-implement-a-dodgeroll-like-dark-souls/89292 (Accessed  10/11/2025).</p>
+<p>COMBAT (2023) At: https://darksouls.wiki.fextralife.com/COMBAT (Accessed  10/11/2025).</p>
+<p>Animation Notifies in Unreal Engine | Unreal Engine 5.7 Documentation | Epic Developer Community (s.d.) At: https://dev.epicgames.com/documentation/en-us/unreal-engine/animation-notifies-in-unreal-engine (Accessed  10/11/2025).</p>
+<p>Animation Montage in Unreal Engine | Unreal Engine 5.7 Documentation | Epic Developer Community (s.d.) At: https://dev.epicgames.com/documentation/en-us/unreal-engine/animation-montage-in-unreal-engine (Accessed  10/11/2025).</p>
+<p>How to Create a Souls-Like Game in Unreal Engine 5 - Full Course (2024) Directed by Gorka Games. At: https://www.youtube.com/watch?v=Hs2sM7eFf6Q (Accessed  10/11/2025).</p>
+<p>Using Layered Animations in Unreal Engine | Unreal Engine 5.7 Documentation | Epic Developer Community (s.d.) At: https://dev.epicgames.com/documentation/en-us/unreal-engine/using-layered-animations-in-unreal-engine (Accessed  10/11/2025).</p>
+<p>How to Blend Animations in Unreal Engine 5 - YouTube (s.d.) At: https://www.youtube.com/watch?v=wOIlkertaLA (Accessed  10/11/2025).</p>
+
+</body>
+</html>

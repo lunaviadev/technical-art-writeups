@@ -1,0 +1,195 @@
+# Week 2 Task – Material Systems and Techniques  
+**Unit:** Technical Art (Level 5 Games Development)  
+
+## Liliana Bellas - 2326296
+
+### Deliverable One - Stylized Water Material with World Position Offset
+
+---
+
+Using a mix of Unreal's ``World Position Order ``, ``LineralInterprolate`` and ``Texture Samples`` I was able to create a custom dynamic water material that including foam shading on surface edges.
+
+![alt text](2025-10-0920-50-18-ezgif.com-video-to-gif-converter.gif)
+Figure 1. Water material being showcased in a test level.
+
+---
+
+#### Section One - Setting up normals
+
+To start off, I had to create a water material with a few base colours and normal map textures in order to have a realistic looking water effect. 
+
+![alt text](image.png)
+Figure 2. Screenshot of my normals section in my blueprints.
+
+As highlighted above in Figure 2, I set up two basic texture samples and used unreal's built in ``T_Water_N`` texture as a bsis for my texture samples. To avoid the water just looking stationary I also added ``Panner`` nodes in order to gradually move the axises of the two normal maps on the X and Y values respectively. I then used a ``BlendAngleConnectedNormals`` into a ``Lerp`` to blend the two normal textures together and to alllow both axises to flow. 
+
+---
+
+#### Section Two - Water colouring
+
+Before moving onto setting up WPO and the crashing foam I very quickly set up three colours for my ``Single Layer Water Material`` node, creating a scattering colour, for light scattering, a default water colour and an emissive colour which was used to give the rims of the water a slight glow to them to give more depth. As shown in the figure below I then also created paramaters for all of them so I could adjust their values in any instance I create.
+
+![alt text](image-1.png)
+Figure 3. Screenshot of my water colouring blueprints.
+
+---
+
+#### Section Three - World Position Offset
+
+I then moved on to setting up my World Position Offset in order to simulate waves in the water which allowed my water texture to have a much more realistic and dynamic look to it and overall enhances the general feel of the texture.
+
+![alt text](image-2.png)
+Figure 4. My World Position Offset blueprints.
+
+#### Why use WPO? 
+
+Using WPO greatly benefits the performance of a game as it works by simply adjusting vertex values to emulate the look of movement without actually moving any kind of bones or requiring animation data which allows lower end computers to more effectively run the game due to less calculations running per frame. This is especially great for creating smaller scale projects where you want to prioritise performance. Furthermore it also allows for runtime control due to it simply tweaking values, things like wind or rain could effect your WPO without requiring any extra work.
+
+#### Controlling Wave Direction and Intensity
+
+Wave direction and intensity is controlled via parameters set up in the world position offset blueprints and means that for any given instance of the material, tweaking these parameters allows the direction of the wave and the intensity of those waves to be greatly adjusted. You can also apply parameters to values such as wave count so that waves become more obvious and frequent if your environment is a windy sea for example, as waves would be more prominent in a setting like that compared to a calm shore.
+
+#### Vertex Density
+
+To allow for smooth wave deformation the WPO would ideally need 2-4 vertices per wave cycle so that it looks continious and natural. This would scale with size of water though as a general rule of thumb it will look best with that level of vertex density.
+
+#### Reacting to lighting conditions
+
+Under my normals section (Figure 2) you can see that there are parameters in place that handle refraction for water, this means that my water will refract light depending on how sunny / cloudy my scene is. It is natural that light bounces off water. As you can see in the gif below with the sun, the light is bouncing off the water and showing clear refraction as the light bounces off the surface.
+
+![alt text](2025-10-2105-54-44-ezgif.com-video-to-gif-converter-1.gif)
+
+Though in a more overcast where the sun is not directly in view the water refracts less light and the surface of the water looks closer to it's original colour.
+
+![alt text](2025-10-2105-58-06-ezgif.com-video-to-gif-converter-1.gif)
+
+### Deliverable Two - Material Parameter Collection (MPC) System 
+
+---
+
+### Deliverable Three - Dynamic Material Instance with Runtime Control 
+
+---
+
+Utilising unreal's `Emissive Colour` and `Opacity Mask` features for materials I was able to create a Dynamic Material Instance which actively changes during run time. I decided to create a dissolving material to allow for objects or entities in my game to have a dissolving effect if they were to be destroyed.
+
+---
+
+#### Section One - Setting up the material
+
+To begin with I created a `Constant Vector 3` to use as my base colour, this could later be swapped out with any given colour and or texture sample though for now I left it as just a solid colour. I then created an `Emissive Colour` and `Opacity Mask`. The Emissive colour would control the colour of which the dissolve effect would be, for this case I chose red just because it's associated with death or damage. I then attached two parameters `DissolveEdge` and `GlowStrength` as they allowed me to control how much of the edge of the noise texture would have the dissolve effect and then the glow strength would determine how strong the red was glowing on the material. Then created an opacity mask by using a generic noise texture I had on file and adding two parameters `Dissolve` and `DissolveIntensity` to it which controls how far the material has been disolved and the intensity of which the dissolve looks like.
+
+![alt text](image-3.png)
+
+
+Figure 5. DMI setup.
+
+![alt text](image-4.png)
+
+Figure 6. Preview of the dissolve effect in editor at about 50%.
+
+#### Section Two - Runtime Control
+
+To allow this dissolve effect to play out in real time I created a basic placeholder actor and just named it dissolvingobj and created a cube with the previously created material on it. I then created a short begin play blueprint which would dissovle the material over the course of ten seconds when the game was started (see below) and then destroy the object as soon as that timeline was finished.
+
+![alt text](image-5.png)
+
+Figure 7. Blueprints for the eventgraph of dissolving object actor.
+
+On begin play the game would then use a timeline that occured over ten seconds to show the material going from -1 (no dissolve) on the dissolve value to 1 (fully disolved) and you would be able to see this occur in real time.
+
+![alt text](2025-10-2106-20-20-ezgif.com-video-to-gif-converter-1.gif)
+
+The material has four adjustable parameters `Dissolve` `DissolveIntensity` `DissolveEdge` and `GlowStrength` to allow this material to be customised for differing dissolve effects. The dissolve material can also be applied in different circumstances, for example having a check run on an enemy that when health reaches 0 the dissolve effect would begin to play and the actor would be destroyed to simulate said enemy being defeated.
+
+#### When should you use DMI over Material Instance Constant
+
+One of the largest benefits to using DMI over MIC is that DMI can be editable at runtime, meaning that during the game the material can be changed via blueprints or c++ etc, this isn't something that's possible with MIC as it can only be adjusted on compile time or in editor meaning that it will always look the same. MIC is only preferred when you need to create a material that is static or will have a preset variation, rather than having a dynamic variation like a dissolving effect.
+
+#### How to optimise DMI creation and updates.
+
+The easiset way to optimise your DMI is to avoid per-frame updates. DMIs will become pretty expensive to use if your game has to update your DMI every single frame rather than just when specific events happen (like an enemy reaching 0 health). Due to DMIs being created at runtime it's a lot more costly on CPU and GPU to keep them always running so ensure that you only have DMIs that run after specific events and not on every frame.
+
+#### Gameplay Scenarios that benefit from runtime material modification
+
+There are a lot of scenarios that benefit from runtime material modificaiton. Things like damage feedback, weather accumulation, invisbility effects and interactive parts of the environment are all things that come to mind. Showing enemy damage feedback in real time wouldn't be possible without DMI on runtime as you wouldn't be able to adjust the material and then change it back quickly without it. The same applies to things like making your character wet in rain or showing lights when completing puzzles, things like this all require modification to materials in runtime that simply wouldn't be possible if the material were to be static. 
+
+### Deliverable Four - Parallax Occlusion Mapping (POM) Material 
+
+---
+
+For my Parallax Occlusion Mapping I decided to use my rock material that I already had in my project as it felt the most suitable to display the effects of POM. Utilising Unreal's `ParallaxOcclusionMapping` node I was able to simply set up a POM UV that I could then plug into my main material to allow for parallax occlusion mapping on all my environment that used my rock material. I also used (UE5 l Realistic Textures with Parallax Occlusion Mapping (POM) l Material Tutorial l Unreal Engine 5, 2023) in order to help me make this POM.
+
+#### Section One - Setting up the material
+
+As mentioned already I had a pre-existing rock material which I was using as a basis for the POM material. Thus I had already set up texture samples and tweaked values to make the rock look good.
+
+![alt text](image-6.png)
+
+Figure 8. A look at the rock texture before any POM was applied.
+
+After applying my rock material to a plane I then began working on setting up the `ParallaxOcclusionMapping` node with all the necessary parameters in order to support POM UVs. 
+
+![alt text](image-7.png)
+
+Figure 9. My POM blueprints.
+
+As seen in Figure 9, using unreal's `ParallaxOcclusionMapping` node I created a texture object that took the height map texture of my rock alongside a few other nodes and parameters in order to set up the the output of the POM. I created a variety of parameters to control the value of the steps in the POM alongside other nodes. I then linked the 3 named reroutes of the output back into my main texture output in order to apply the POM effect.
+
+![alt text](image-8.png)
+
+Figure 10. Rock texture with POM enabled.
+
+As you can see in Figure 10, after the POM node was set up with its parameters and hooked up to the main texture output, the rock material immediately shows a lot clearer depth and height to it with visible dips and heights being visible when compared against the first material.
+
+#### How does step count effect performance and visuals?
+
+Step count directly correlates to how good the parallax effect due to the fact that step count equates to how many raymarching samples the shader takes in the height map, which then approximates occlusion and depth, with more steps equaling more samples. This impacts the performance greatly. 32-64 steps provides the clearest depth and occlusion detail though comes at a heavy performance cost due to the fact the game has to calculate and simulate all the edges and occlusion, this becomes a heavy task for most computers especially for large scale surfaces. In figure 10 I used a step count of 64 purely to demonstrate it to it's extreme, though if I were to use POM for regular game usage I would typically use steps between 2-8.
+
+#### What surfaces benefit the most from POM
+
+Typically more rocky surfaces with very visible depth gaps and height variation will benefit the most from POM due to the fact that the effects of POM will be a lot more visible on these kinds of surfaces in comparison to something that's a bit more rounded or curved with less obvious depth gaps. 
+
+#### How does POM compare to simple bump offset?
+
+POM utilises things like height map occlusion and parallax in order to accurately simulate depth and height whereas bump offset only takes into account view angle and height which leads to a less realistic depth illusion being created. POM also takes into account a large amount of texture samples whereas bump offset only uses one. POM is often used over bump offset when you need realistic depth with good edge quality, whereas bump offset is preferred when the depth illusion doesn't need to be nearly as good and just needs to be slight. You'll often use a mix of both during the process of creating materials for games due to their advantages and limitations.
+
+#### Limitations at silhouette edges
+
+POM's biggest drawback is it's a screen space illusion rather than real geometry meaning that the mesh still remains flat, so if you were to walk over it your character wouldnt move up and down depending on the heights and depths, they'll walk as if it were a completely flat surface, which it is. It also means that shadows and reflections dont follow the fake height as it's still using the base geometry and not the faked height. 
+
+### Deliverable Five - (Option A) Post Process Material
+
+For this task I decided to go with creating a post process material that would alter the visual look of my game. From the start I already had settled on creating a post process material that would make my game look more akin to PS2 era games as I'm a big fan of the nostalgic retro look. I used (How To Create A Pixelated Effect - Unreal Engine 5 Material Tutorial, 2025) in order to assist with creating an effective and easy post processing material.
+
+### Section One - Creating the Material.
+
+Utilising a variety of nodes such as `Resolution X,Y`, `ScreenPosition` and `CustomStencil` I was able to create a convincing pixel filter that would apply itself to the entire game and viewport.
+
+![alt text](image-9.png)
+Figure 11. Pixel effect blueprints
+
+To create the pixel effect on the screen I had to adjust the `ViewportUV` by dowscaling the overall resolution of the game. This is achieved by setting a default X and Y resolution before running them through a switch parameter and dividing said parameter before eventually applying that downscaled resolution into a `SceneTexture:PostProcessingInput` in order to allow it to be outputted as an emissive colour.
+
+![alt text](image-10.png)
+Figure 12. Posterization
+
+To more accurately mimic the look of older games I then set up a lerp of both post process inputs which would then be ran through a series of functions in order to limit the amount of visible colours used alongside things like desaturating the colours and limiting their brightness. This was done in an effort to closer replicate the old look as they had a limited amount of colours (256 to be exact) that they could work with so the colour range for older games wasn't nearly as high.
+
+![alt text](image-11.png)
+Figure 13. Exlucding this effect from specified objects
+
+I then added a small `SceneTexture:CustomStencil` that would allow this effect to be bypassed and not effect certain objects if I wanted it to. This was done by using a bitmask which would then flip the effect of the pixelisation, setting it back to a regular resolution for an object. Though ultimately I didn't use this for anything in my scene.
+
+---
+
+# BIBLIOGRAPHY
+
+
+UE5 l Realistic Textures with Parallax Occlusion Mapping (POM) l Material Tutorial l Unreal Engine 5 (2023) Directed by Coreb Games. At: https://www.youtube.com/watch?v=K18qfcTFkNw (Accessed  07/11/2025).
+
+
+How To Create A Pixelated Effect - Unreal Engine 5 Material Tutorial (2025) Directed by Pitchfork Academy. At: https://www.youtube.com/watch?v=jxOO_xjQp-M (Accessed  07/11/2025).
+
+
+
