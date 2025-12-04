@@ -32,37 +32,15 @@ Height blending typically works well with slope blending as by having both syste
 
 ---
 
-### Week 3 Deliverable Two - Slope-Based Blending System
+### Week 3 Deliverable Three - Foliage Type Integration and Generation
 
-For the second deliverable, I worked on a slope-based blending system. This system is designed to automatically texture the landscape based on the angle of the terrain, applying different materials to flat areas versus steep cliffs.
+For this week's research I only had to look into procedural generation for foliage landscapes. I read through Unreal's provided documentation to start out with (Procedural Foliage Tool in Unreal Engine | Unreal Engine 5.7 Documentation | Epic Developer Community, s.d.) and gathered a basic idea of implementation and how I would go about creating this in my project. 
 
-[PLACEHOLDER: Detailed explanation of the slope blending implementation, specific nodes used, and parameter settings. Waiting for .COPY file reference.]
+I then looked into watching a video on YouTube to better understand how to implement this in my project. (Using Procedural Foliage Tool in UNREAL Engine | Community tutorial, 2024). 
 
-![alt text](placeholder_slope_bp.png)
-Figure 17. Slope blending blueprint
-
-[PLACEHOLDER: Description of the blueprint setup shown in Figure 17.]
-
-![alt text](placeholder_slope_result.png)
-Figure 18. Slope blending result
-
-[PLACEHOLDER: Description of the visual result shown in Figure 18.]
-
-### How do you handle overhangs and complex geometry?
-
-[PLACEHOLDER: Explanation of handling overhangs, typically involving tri-planar mapping or specific mesh blending techniques.]
-
-### What slope angles create the most natural-looking transitions?
-
-[PLACEHOLDER: Discussion on natural slope angles, often finding that transitions around 30-45 degrees provide a realistic shift from soil/grass to rock.]
-
-### How can slope blending enhance the sense of geological realism?
-
-[PLACEHOLDER: Thoughts on geological realism, ensuring that erosion patterns and material distribution mimic real-world physics.]
+This made it pretty easy to understand going in that I would only need a few core components to implement this in my project. With a few assets for the actual foliage I wanted to generate, and a single procedual foliage spawner to manage the distribution of different plant types across the terrain. The rest lay solely on tweaking values to ensure it looks good.
 
 ---
-
-### Week 3 Deliverable Three - Foliage Type Integration and Generation
 
 For the final deliverable, I integrated a procedural foliage system to populate the landscape with vegetation. I used a **Procedural Foliage Spawner** named `PFS_Grassland` to manage the distribution of different plant types across the terrain.
 
@@ -99,10 +77,15 @@ Balancing richness and performance involves careful management of density and dr
 
 Schütz, A. (2024) How to Use Landscape Layer Blending and Height Blending | Unreal Engine 5 Tutorial. At: https://artur-schuetz.com/tutorials/article/how-to-use-landscape-layer-blending-and-height-blending (Accessed  07/11/2025).
 
-Landscape Materials in Unreal Engine | Unreal Engine 5.6 Documentation | Epic Developer Community (s.d.) At: https://dev.epicgames.com/documentation/en-us/unreal-engine/landscape-materials-in-unreal-engine?utm_source=chatgpt.com (Accessed  07/11/2025).
+Landscape Materials in Unreal Engine | Unreal Engine 5.6 Documentation | Epic Developer Community (s.d.) At: https://dev.epicgames.com/documentation/en-us/unreal-engine/landscape-materials-in-unreal-engine (Accessed  07/11/2025).
 
 Landscape Technical Guide in Unreal Engine | Unreal Engine 5.6 Documentation | Epic Developer Community (s.d.) At: https://dev.epicgames.com/documentation/en-us/unreal-engine/landscape-technical-guide-in-unreal-engine (Accessed  07/11/2025).
 
-What is the recommended size for a height map (terrain) to import in Unreal Engine - Development / World Creation (2018) At: https://forums.unrealengine.com/t/what-is-the-recommended-size-for-a-height-map-terrain-to-import-in-unreal-engine/106477?utm_source=chatgpt.com (Accessed  07/11/2025).
+What is the recommended size for a height map (terrain) to import in Unreal Engine - Development / World Creation (2018) At: https://forums.unrealengine.com/t/what-is-the-recommended-size-for-a-height-map-terrain-to-import-in-unreal-engine/106477? (Accessed  07/11/2025).
 
-Sharper landscape layer height blending? - Development / Rendering (2021) At: https://forums.unrealengine.com/t/sharper-landscape-layer-height-blending/155838?utm_source=chatgpt.com (Accessed  07/11/2025).
+Sharper landscape layer height blending? - Development / Rendering (2021) At: https://forums.unrealengine.com/t/sharper-landscape-layer-height-blending/155838? (Accessed  07/11/2025).
+
+Procedural Foliage Tool in Unreal Engine | Unreal Engine 5.7 Documentation | Epic Developer Community (s.d.) At: https://dev.epicgames.com/documentation/en-us/unreal-engine/procedural-foliage-tool-in-unreal-engine (Accessed  07/11/2025).
+
+Using Procedural Foliage Tool in UNREAL Engine | Community tutorial (2024) At: https://dev.epicgames.com/community/learning/tutorials/5V6Z/fortnite-using-procedural-foliage-tool-in-unreal-engine (Accessed  04/12/2025).
+
