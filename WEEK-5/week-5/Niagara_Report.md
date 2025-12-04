@@ -76,15 +76,22 @@ I then adjusted a few parameters for the sparks and specifically added some `Gra
 
 ## 4. Slash Attack VFX
 
-I created the Slash effect to emphasize the weapon's movement during an attack. This is essentially a trail effect that follows the sword's motion.
+For the Slash Attack, I utilised the `Stable_Sword_Outward_Slash_Montage` I had made in the previous week to drive the visual effects. The key to this implementation was using Animation Notifiers to trigger the effect at the precise moment of the swing.
 
-I attached the Niagara system to the weapon mesh using two sockets: `Slash_Base` and `Slash_Tip`. The Ribbon Renderer connects particles spawned at these two locations, creating a sheet of geometry that follows the blade. I used a material with an additive blend mode to make it look like glowing energy.
+I used the `AnimNotifyState_TimedNiagaraEffect` which is a built-in notify state that allows for the spawning of a Niagara System for a duration. I set the Template to `NS_SwordTrail` and attached it to the `WeaponTip` socket. This ensures the trail follows the tip of the blade perfectly during the animation.
 
-![Slash Sockets](placeholder_slash_sockets.png)
-*Figure 7: The socket setup on the weapon mesh.*
+![alt text](image-16.png)
+*Figure 12: The AnimNotifyState_TimedNiagaraEffect setup in the animation montage.*
 
-![Slash Action](placeholder_slash_action.png)
-*Figure 8: The Slash VFX following the attack animation.*
+The `NS_SwordTrail` system itself relies on a `NiagaraRibbonRendererProperties` within the `Minimal` emitter. This renderer generates geometry between the spawned particles, creating a smooth, continuous trail that visualizes the weapon's path. The system is spawned and updated based on the duration defined in the animation notify, ensuring it only appears during the active slash frames.
+
+![alt text](image-17.png)
+*Figure 13: The NS_SwordTrail system showing the ribbon renderer setup.*
+
+Additionally I had to sample both sockets on the skeletal mesh of my weapon in order to get the trail to follow the tip of the blade perfectly. I then created `trailDirection` and `trailWidth` so that I would be able to directly link these vectors to the initalise particle lerp.
+
+![alt text](slashes.gif)
+*Figure 14: The final Slash effect in the editor montage.*
 
 
 ## 5. Decal Impact
@@ -92,20 +99,20 @@ I attached the Niagara system to the weapon mesh using two sockets: `Slash_Base`
 For the impact effect, I used `NS_Blood` to create a splatter on the ground. This is triggered when the attack first hits an enemy that can take damage, which then transitions into a decal when it collides with a surface.
 
 ![alt text](image-8.png)
-*Figure 14: The spawning system blueprints after damage is applied to the enemy.*
+*Figure 15: The spawning system blueprints after damage is applied to the enemy.*
 
 The core of this effect is the `Stain` emitter. It spawns a single particle that acts as a decal. I used `M_Blood`, which creates a masked stain using a texture sample. In the Blueprint logic for the notify, I perform a Line Trace to find the ground position and the Surface Normal. I pass these values to the Niagara system so the decal aligns perfectly with the floor, regardless of the slope.
 
 ![alt text](image-9.png)
-*Figure 15: The emitter setup for NS_Blood.*
+*Figure 16: The emitter setup for NS_Blood.*
 
 I utilised a variety of user parameters too so that certain aspects such as the amount of blood splatter, how long the blood would linger for and how big the blood would be could all be adjusted accordingly if it needed to be increased or decreased for specific reasons.
 
 ![alt text](image-10.png)
-*Figure 16: The user parameters for NS_Blood.*
+*Figure 17: The user parameters for NS_Blood.*
 
 ![alt text](bloodsplatter.gif)
-*Figure 17: The final Blood splatter effect.*
+*Figure 18: The final Blood splatter effect.*
 
 ## 6. SubUV Flipbook Implementation
 
@@ -114,15 +121,15 @@ Finally, I created a high-fidelity variant of the fire effect, `NS_FireFlipbook`
 I enabled `SubUV` on the Sprite Renderer and used the `SubUVAnimation` module. This module iterates through the frames of the texture sheet over the particle's lifetime. This bakes complex fluid simulation behavior into the texture, making the fire look much more realistic and volatile than the standard sprite version.
 
 ![alt text](image-11.png)
-*Figure 18: The SubUV settings in the Sprite Renderer.*
+*Figure 19: The SubUV settings in the Sprite Renderer.*
 
 ![alt text](image-12.png)
-*Figure 19: The SubUV settings in the NS_FireFlipbook sprite renderer.*
+*Figure 20: The SubUV settings in the NS_FireFlipbook sprite renderer.*
 
 I then set up a similar amount of user parameters for this one, however I also created a `Scale` user parameter to control the size of the fire. This would allow the fire to properly scale to become larger and ultimately not break when you would size it up.
 
 ![alt text](image-13.png)
-*Figure 20: The user parameters for NS_FireFlipbook.*
+*Figure 21: The user parameters for NS_FireFlipbook.*
 
 ![alt text](comparison.gif)
-*Figure 21: Side-by-side comparison of the Standard Fire (left) and Flipbook Fire (right).*
+*Figure 22: Side-by-side comparison of the Standard Fire (left) and Flipbook Fire (right).*
