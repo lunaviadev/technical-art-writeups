@@ -83,7 +83,7 @@ In the Anim Graph, I used the `Layered Blend Per Bone` node.
 *   **Base Pose**: This is connected to the Locomotion State Machine (legs and hips).
 *   **Blend Pose 0**: This is connected to the "UpperBody" Slot.
 
-![Layered Blend Per Bone Node](placeholder_layered_blend.png)
+![Layered Blend Per Bone Node](layeredblend.png)
 *Figure 5: The Anim Graph showing the Layered Blend Per Bone node merging the Locomotion and UpperBody slot.*
 
 I created a specific Slot in the Animation Blueprint called `UpperBody`. In the montage `Stable_Sword_Outward_Slash_Montage`, I set the slot to `UpperBody` instead of `DefaultSlot`.
