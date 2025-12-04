@@ -183,12 +183,8 @@ I then added a small `SceneTexture:CustomStencil` that would allow this effect t
 
 ---
 
-
-
-
 # BIBLIOGRAPHY
 
-## Week 2 references
 
 UE5 l Realistic Textures with Parallax Occlusion Mapping (POM) l Material Tutorial l Unreal Engine 5 (2023) Directed by Coreb Games. At: https://www.youtube.com/watch?v=K18qfcTFkNw (Accessed  07/11/2025).
 
